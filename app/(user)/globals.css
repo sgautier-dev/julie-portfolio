@@ -5,7 +5,20 @@
 
 @layer base { 
 
-    .images {
-        @apply z-10 w-3/4 mr-12 md:mr-14 lg:mr-36 mb-10 md:mb-14 lg:mb-20 rounded-lg
+    .image {
+        @apply z-10 w-3/4 mr-12 md:mr-14 lg:mr-36 mb-28 md:mb-36 lg:mb-40 rounded-lg
+    }
+
+    .text {
+        @apply z-10 text-base sm:text-xl lg:text-2xl bg-slate-50 ml-10 dark:bg-slate-900
+        lg:mt-10
+    }
+
+    .info {
+        @apply image flex flex-col gap-2 xl:flex-row 
+    }
+
+    .icon {
+        @apply text-xl md:text-2xl lg:text-3xl
     }
 }

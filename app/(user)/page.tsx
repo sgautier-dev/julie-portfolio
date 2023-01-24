@@ -28,7 +28,7 @@ export default async function Home() {
 	const images: JuliePics[] = await client.fetch(queryPics);
 	// console.log('images', images)
 	const infos: JulieInfo[] = await client.fetch(queryInfo);
-	console.log("infos", infos);
+
 	const firstImage = images.find((element) => element.title === "first")!;
 	const secondImage = images.find((element) => element.title === "second")!;
 	const thirdImage = images.find((element) => element.title === "third")!;
@@ -45,47 +45,48 @@ export default async function Home() {
 			>
 				<div className="flex flex-col place-items-end">
 					<Image
-						className="images"
+						className="image"
 						src={urlFor(firstImage.image).url()}
 						alt={firstImage.alt}
 						width="2000"
 						height="1334"
 					/>
 					<Image
-						className="images"
+						className="image"
 						src={urlFor(secondImage.image).url()}
 						alt={secondImage.alt}
 						width="2000"
 						height="1334"
 					/>
 
-					<div className="images border-solid border-3 border-yellow-600 flex flex-col gap-2 lg:flex-row">
+					<div className="info">
 						<Image
-							className="z-10 w-3/4 lg:w-1/3 rounded-lg"
+							className="z-10 w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
 							src={urlFor(bio.image).url()}
 							alt="julie gautier bio image"
 							width="2000"
 							height="2000"
 						/>
-						<p className="z-10 bg-slate-50">{bio.body}</p>
+						<p className="text">{bio.body}</p>
 					</div>
 
 					<Image
-						className="images"
+						className="image"
 						src={urlFor(thirdImage.image).url()}
 						alt={thirdImage.alt}
 						width="4134"
 						height="2757"
 					/>
-					<div className="images border-solid border-3 border-yellow-600 flex flex-col gap-2 lg:flex-row">
+					<div className="info">
+						
 						<Image
-							className="z-10 w-3/4 lg:w-1/3 rounded-lg"
+							className="z-10 w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
 							src={urlFor(work.image).url()}
 							alt="julie gautier work image"
 							width="1334"
 							height="2000"
 						/>
-						<p className="z-10 bg-slate-50">{work.body}</p>
+						<p className="text">{work.body}</p>
 					</div>
 				</div>
 			</main>
