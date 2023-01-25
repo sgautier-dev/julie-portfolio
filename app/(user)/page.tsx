@@ -98,36 +98,33 @@ export default async function Home() {
 						<p className="text">{work.body}</p>
 					</article>
 
-					<div className="relative flex items-center">
-						<div
-							id="slider"
-							className="w-full h-full overflow-x-scroll scroll whitespace-nowrap"
-						>
-							{data.items.map((item: any) => {
-								const { id, snippet = {} } = item;
-								const { title, thumbnails = {}, resourceId } = snippet;
-								const { medium = {} } = thumbnails;
-								return (
-									<>
-										<Link
-											href={`https://www.youtube.com/watch?v=${resourceId.videoId}`}
-											target="_blank"
-											className="inline-block p-2 hover:scale-105 ease-in-out duration-300"
-										>
-											<Image
-												className="z-10 rounded-lg object-cover object-center"
-												src={medium.url}
-												alt={title}
-												width={medium.width}
-												height={medium.height}
-											/>
-										</Link>
-
-										<p>{title}</p>
-									</>
-								);
-							})}
-						</div>
+					<div
+						id="slider"
+						className="relative w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth flex items-center"
+					>
+						{data.items.map((item: any) => {
+							const { id, snippet = {} } = item;
+							const { title, thumbnails = {}, resourceId } = snippet;
+							const { medium = {} } = thumbnails;
+							return (
+								<div key={id}>
+									<Link
+										href={`https://www.youtube.com/watch?v=${resourceId.videoId}`}
+										target="_blank"
+										className=" w-40 inline-block p-2 hover:scale-105 ease-in-out duration-300"
+									>
+										<Image
+											className="z-10 rounded-lg object-cover object-center"
+											src={medium.url}
+											alt={title}
+											width={medium.width}
+											height={medium.height}
+										/>
+										{/* <p>{title}</p> */}
+									</Link>
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</main>
