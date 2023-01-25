@@ -6,7 +6,7 @@
 @layer base { 
 
     .image {
-        @apply z-10 w-3/4 mr-12 md:mr-14 lg:mr-36 mb-28 md:mb-36 lg:mb-40 rounded-lg
+        @apply z-10 w-3/4 mr-12 md:mr-14 lg:mr-36 mb-28 md:mb-36 lg:mb-40 rounded-lg object-cover object-center
     }
 
     .text {

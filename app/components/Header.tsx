@@ -52,7 +52,13 @@ function Header() {
 						<FontAwesomeIcon icon={faInstagram} className="icon" />
 					</Link>
 
-					<FontAwesomeIcon icon={faYoutube} className="icon" />
+					<Link
+						href="https://www.youtube.com/@juliegautierofficial/"
+						className="text-center hover:opacity-50"
+						target="_blank"
+					>
+						<FontAwesomeIcon icon={faYoutube} className="icon" />
+					</Link>
 				</div>
 			</div>
 		</header>
