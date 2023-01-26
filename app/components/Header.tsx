@@ -8,6 +8,7 @@ import {
 	faInstagram,
 	faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+// import { BsFacebook } from "react-icons/bs";
 
 // The following import prevents a Font Awesome icon server-side rendering bug,
 // where the icons flash from a very large icon down to a properly sized one:
@@ -30,36 +31,38 @@ function Header() {
 				<h1>
 					JULIE <br /> GAUTIER
 				</h1>
+				<h2 className="vertical text-center leading-[40px] md:leading-[60px] lg:leading-[80px] hidden">
+					BIO
+				</h2>
 			</div>
-			<div className="border-solid border-4 border-yellow-200 flex flex-col gap-6 md:gap-7 lg:gap-8 mt-2">
-				<button className="rotate-90 text-2xl md:text-3xl lg:text-4xl border-b-2 border-slate-900 text-center hover:opacity-50 leading-none">
-					menu
+			<div className="flex flex-col space-y-2 lg:space-y-2 ">
+				<button className="vertical text-2xl md:text-3xl lg:text-4xl border-l-2 border-slate-900 text-center hover:opacity-50 leading-[20px] md:leading-[30px] lg:leading-[30px]">
+					<p className="vertical border-l-2">menu</p>
 				</button>
-				<div className="flex flex-col gap-2  text-xs ">
-					<Link
-						href="https://fr-fr.facebook.com/juliegautierofficiel/"
-						className="text-center hover:opacity-50"
-						target="_blank"
-					>
-						<FontAwesomeIcon icon={faFacebook} className="icon" />
-					</Link>
+				
+				<Link
+					href="https://fr-fr.facebook.com/juliegautierofficiel/"
+					className="text-center hover:scale-90"
+					target="_blank"
+				>
+					<FontAwesomeIcon icon={faFacebook} className="icon" />
+				</Link>
 
-					<Link
-						href="https://www.instagram.com/juliegautier.nery/"
-						className="text-center hover:opacity-50"
-						target="_blank"
-					>
-						<FontAwesomeIcon icon={faInstagram} className="icon" />
-					</Link>
+				<Link
+					href="https://www.instagram.com/juliegautier.nery/"
+					className="text-center hover:opacity-50"
+					target="_blank"
+				>
+					<FontAwesomeIcon icon={faInstagram} className="icon" />
+				</Link>
 
-					<Link
-						href="https://www.youtube.com/@juliegautierofficial/"
-						className="text-center hover:opacity-50"
-						target="_blank"
-					>
-						<FontAwesomeIcon icon={faYoutube} className="icon" />
-					</Link>
-				</div>
+				<Link
+					href="https://www.youtube.com/@juliegautierofficial/"
+					className="text-center hover:opacity-50"
+					target="_blank"
+				>
+					<FontAwesomeIcon icon={faYoutube} className="icon" />
+				</Link>
 			</div>
 		</header>
 	);

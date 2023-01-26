@@ -2,23 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	.image {
+		@apply z-10 w-3/4 mr-12 md:mr-14 lg:mr-36 mb-28 md:mb-36 lg:mb-40 rounded-lg object-cover object-center;
+	}
 
-@layer base { 
+	.text {
+		@apply z-10 text-base sm:text-xl lg:text-2xl bg-slate-50 ml-10 dark:bg-slate-900
+        lg:mt-10;
+	}
 
-    .image {
-        @apply z-10 w-3/4 mr-12 md:mr-14 lg:mr-36 mb-28 md:mb-36 lg:mb-40 rounded-lg object-cover object-center
-    }
+	.info {
+		@apply image flex flex-col gap-2 xl:flex-row;
+	}
 
-    .text {
-        @apply z-10 text-base sm:text-xl lg:text-2xl bg-slate-50 ml-10 dark:bg-slate-900
-        lg:mt-10
-    }
+	.icon {
+		@apply text-xl md:text-2xl lg:text-3xl;
+	}
 
-    .info {
-        @apply image flex flex-col gap-2 xl:flex-row 
-    }
-
-    .icon {
-        @apply text-xl md:text-2xl lg:text-3xl
-    }
+	.vertical {
+		writing-mode: vertical-rl;
+		text-orientation: mixed;
+	}
 }
