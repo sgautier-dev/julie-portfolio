@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+	.zindexfix {
+		transform: translate3d(0,0,0);
+	}
+
 	.image {
-		@apply z-10 w-3/4 mr-12 md:mr-14 lg:mr-36 mb-28 md:mb-36 lg:mb-40 rounded-lg object-cover object-center;
+		@apply z-10 w-3/4 mr-12 md:mr-14 lg:mr-36 mb-28 md:mb-36 lg:mb-40 rounded-lg object-cover object-center zindexfix;
 	}
 
 	.text {
 		@apply z-10 text-base sm:text-xl lg:text-2xl bg-slate-50 ml-10 dark:bg-slate-900
-        lg:mt-10;
+        lg:mt-10 zindexfix;
 	}
 
 	.info {
@@ -23,5 +27,16 @@
 	.vertical {
 		writing-mode: vertical-rl;
 		text-orientation: mixed;
+	}
+
+
+
+	.section-min-height {
+		min-height: calc(100vh - 68px);
+		/* viewport height minus height of the header */
+	}
+
+	.toggle-btn {
+		@apply [&>span::before]:translate-y-0 [&>span::before]:rotate-45 [&>span::after]:translate-y-0 [&>span::after]:-rotate-45 [&>span]:rotate-[-720deg] [&>span]:bg-transparent;
 	}
 }

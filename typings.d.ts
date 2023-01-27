@@ -27,3 +27,8 @@ interface JuliePics extends Base {
     image: Image
     alt: string
 }
+
+interface formInput {
+    name: string
+    value: string
+}

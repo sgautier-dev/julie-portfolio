@@ -1,14 +1,9 @@
 import Image from "next/image";
-import { Quicksand } from "@next/font/google";
 import { groq } from "next-sanity";
 import { client } from "../../lib/sanity.client";
 import urlFor from "../../lib/urlFor";
 import Slider from "../components/Slider";
-
-const quicksand = Quicksand({
-	subsets: ["latin"],
-	// variable: '--font-title'
-});
+import ContactForm from "../components/ContactForm";
 
 // const query = groq`
 //   *[_type=='juliePics'] {
@@ -51,8 +46,10 @@ export default async function Home() {
 
 	return (
 		<>
+			{/* <div className="scroll-tracker h-4 bg-lime-600 fixed inset-44"></div> */}
 			<main
-				className={`mx-auto border-solid border-2 border-red-600 ${quicksand.className}`}
+				className="mx-auto scroll-mt-52"
+				id="top"
 			>
 				<div className="flex flex-col place-items-end">
 					<Image
@@ -70,9 +67,9 @@ export default async function Home() {
 						height="1334"
 					/>
 
-					<article className="info">
+					<article className="info" id="bio">
 						<Image
-							className="z-10 w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
+							className="w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
 							src={urlFor(bio.image).url()}
 							alt="julie gautier bio image"
 							width="2000"
@@ -90,7 +87,7 @@ export default async function Home() {
 						height="2757"
 					/>
 
-					<article className="info mb-6 ">
+					<article className="info mb-6" id="work">
 						<Image
 							className="z-10 w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
 							src={urlFor(work.image).url()}
@@ -111,7 +108,7 @@ export default async function Home() {
 						height="1333"
 					/>
 
-					<article className="info">
+					<article className="info" id="contact">
 						<Image
 							className="z-10 w-1/2 lg:w-2/5 rounded-lg object-cover object-center"
 							src={urlFor(contactImage.image).url()}
@@ -119,40 +116,7 @@ export default async function Home() {
 							width="467"
 							height="640"
 						/>
-						<form className="text w-3/4 flex flex-col gap-3" id="contactForm">
-							<label htmlFor="name">NAME*</label>
-							<input
-								type="text"
-								id="name"
-								name="name"
-								required
-								placeholder="your name"
-								className="bg-slate-50 dark:bg-slate-900 border-b border-solid border-slate-900 p-3 dark:border-slate-50"
-							></input>
-							<label htmlFor="email">EMAIL* </label>
-							<input
-								type="email"
-								id="email"
-								name="email"
-								required
-								placeholder="your email"
-								className="bg-slate-50 dark:bg-slate-900 border-b border-solid border-slate-900 p-3 dark:border-slate-50"
-							></input>
-							<label htmlFor="message">MESSAGE*</label>
-							<textarea
-								name="message"
-								id="message"
-								placeholder="your message"
-								required
-								className="bg-slate-50 dark:bg-slate-900 border-b border-solid border-slate-900 p-3 dark:border-slate-50"
-							></textarea>
-							<button
-								className="w-1/3 rounded-lg border border-solid border-slate-900 bg-slate-50 dark:bg-slate-900 p-2 text-center hover:bg-slate-200 dark:border-slate-50 m-auto sm:w-1/4"
-								id="submitButton"
-							>
-								SEND
-							</button>
-						</form>
+						<ContactForm />
 					</article>
 				</div>
 			</main>
