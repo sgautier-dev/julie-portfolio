@@ -1,21 +1,22 @@
 "use client";
-
-import Link from "next/link";
 import { League_Spartan } from "@next/font/google";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faFacebook,
-	faInstagram,
-	faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+
+// import Link from "next/link";
+
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+// 	faFacebook,
+// 	faInstagram,
+// 	faYoutube,
+// } from "@fortawesome/free-brands-svg-icons";
 // import { BsFacebook } from "react-icons/bs";
 
 // The following import prevents a Font Awesome icon server-side rendering bug,
 // where the icons flash from a very large icon down to a properly sized one:
-import "@fortawesome/fontawesome-svg-core/styles.css";
-// Prevent fontawesome from adding its CSS since we did it manually above:
-import { config } from "@fortawesome/fontawesome-svg-core";
-config.autoAddCss = false;
+// import "@fortawesome/fontawesome-svg-core/styles.css";
+// // Prevent fontawesome from adding its CSS since we did it manually above:
+// import { config } from "@fortawesome/fontawesome-svg-core";
+// config.autoAddCss = false;
 
 const leagueSpartan = League_Spartan({
 	subsets: ["latin"],
@@ -31,7 +32,7 @@ function Header() {
 	const toggleMenu = () => {
 		const hamburgerBtn = document.getElementById("hamburger-button")!;
 		const mobileMenu = document.getElementById("menu")!;
-		const header = document.getElementById("header")!
+		const header = document.getElementById("header")!;
 
 		header.classList.toggle("z-0");
 		header.classList.toggle("z-40");
@@ -43,10 +44,10 @@ function Header() {
 
 	return (
 		<header
-			className={`sticky top-0 z-0 flex items-center justify-between space-x-2 py-3 ${leagueSpartan.className}`}
+			className={`sticky top-0 z-0 flex items-center justify-between space-x-2 p-3 ${leagueSpartan.className}`}
 			id="header"
 		>
-			<div className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl pl-2 md:pl-3 lg:pl-4">
+			<div className="title pl-2 md:pl-3 lg:pl-4">
 				<h1>
 					JULIE <br /> GAUTIER
 				</h1>
@@ -94,29 +95,31 @@ function Header() {
 					</nav>
 				</div>
 
-				<Link
-					href="https://fr-fr.facebook.com/juliegautierofficiel/"
-					className="text-center hover:opacity-50"
-					target="_blank"
-				>
-					<FontAwesomeIcon icon={faFacebook} className="icon" />
-				</Link>
+				{/* <div className="flex flex-col gap-2 icons" >
+					<Link
+						href="https://fr-fr.facebook.com/juliegautierofficiel/"
+						className="text-center hover:opacity-50"
+						target="_blank"
+					>
+						<FontAwesomeIcon icon={faFacebook} className="" />
+					</Link>
 
-				<Link
-					href="https://www.instagram.com/juliegautier.nery/"
-					className="text-center hover:opacity-50"
-					target="_blank"
-				>
-					<FontAwesomeIcon icon={faInstagram} className="icon" />
-				</Link>
+					<Link
+						href="https://www.instagram.com/juliegautier.nery/"
+						className="text-center hover:opacity-50"
+						target="_blank"
+					>
+						<FontAwesomeIcon icon={faInstagram} className="" />
+					</Link>
 
-				<Link
-					href="https://www.youtube.com/@juliegautierofficial/"
-					className="text-center hover:opacity-50"
-					target="_blank"
-				>
-					<FontAwesomeIcon icon={faYoutube} className="icon" />
-				</Link>
+					<Link
+						href="https://www.youtube.com/@juliegautierofficial/"
+						className="text-center hover:opacity-50"
+						target="_blank"
+					>
+						<FontAwesomeIcon icon={faYoutube} className="" />
+					</Link>
+				</div> */}
 			</div>
 		</header>
 	);

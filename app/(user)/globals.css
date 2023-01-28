@@ -8,25 +8,29 @@
 	}
 
 	.image {
-		@apply z-10 w-3/4 mr-12 md:mr-14 lg:mr-36 mb-28 md:mb-36 lg:mb-40 rounded-lg object-cover object-center zindexfix;
+		@apply w-3/4 mr-12 md:mr-14 lg:mr-36 mb-28 md:mb-36 lg:mb-40 rounded-lg object-cover object-center zindexfix;
+	}
+
+	.title {
+		@apply text-7xl md:text-8xl lg:text-9xl;
 	}
 
 	.text {
-		@apply z-10 text-base sm:text-xl lg:text-2xl bg-slate-50 ml-10 dark:bg-slate-900
+		@apply text-base sm:text-xl lg:text-2xl bg-slate-50 ml-10 dark:bg-slate-900
         lg:mt-10 zindexfix;
 	}
 
 	.info {
-		@apply image flex flex-col gap-2 xl:flex-row;
+		@apply image flex flex-col gap-2;
 	}
 
-	.icon {
-		@apply text-xl md:text-2xl lg:text-3xl;
+	.icons {
+		@apply text-2xl md:text-3xl p-3 bottom-20 right-0 fixed;
 	}
 
 	.vertical {
 		writing-mode: vertical-rl;
-		text-orientation: mixed;
+		text-orientation: upright;
 	}
 
 
