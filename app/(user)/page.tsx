@@ -4,6 +4,7 @@ import { client } from "../../lib/sanity.client";
 import urlFor from "../../lib/urlFor";
 import Slider from "../components/Slider";
 import ContactForm from "../components/ContactForm";
+import animateElementsOnScroll from "@/lib/animateElementsOnScroll";
 
 import { SiMinutemailer } from "react-icons/si";
 import { League_Spartan } from "@next/font/google";
@@ -61,21 +62,21 @@ export default async function Home() {
 					muted
 					className=""
 				></video> */}
-				<div className="mb-28 md:mb-36 lg:mb-40">
+				<div className="relative overflow-hidden w-full h-0 pb-[75%] md-pb[56.25%] mb-40">
 					<iframe
-						width="1080"
-						height="607"
-						src="https://www.youtube.com/embed/gLpjV3drv1I?controls=0&mute=1&loop=1&playlist=gLpjV3drv1I&autoplay=1"
+						width="1280"
+						height="720"
+						src="https://www.youtube.com/embed/gLpjV3drv1I?controls=0&mute=1&loop=1&playlist=gLpjV3drv1I&autoplay=1&modestbranding=1"
 						title="YouTube video player"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						allowFullScreen
-						className="m-auto w-full"
+						className="absolute top-0 left-0 w-full h-full m-auto"
 					></iframe>
 				</div>
 
 				<div className="flex flex-col place-items-end">
 					<Image
-						className="image"
+						className="image animate-image"
 						src={urlFor(firstImage.image).url()}
 						alt={firstImage.alt}
 						width="2000"

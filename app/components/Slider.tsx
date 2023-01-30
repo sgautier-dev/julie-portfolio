@@ -19,10 +19,10 @@ function Slider({ data }: any) {
 		<>
 			<h3 className="mx-auto font-medium text-sm sm:text-base lg:text-lg" >Films</h3>
 
-			<div className="image mb-1 bg-slate-500 dark:bg-slate-400 h-[2px]"></div>
+			<div className="w-3/4 m-auto bg-slate-500 dark:bg-slate-400 h-[2px]"></div>
 
-			<div className="relative image mb-1 flex items-center">
-				<MdChevronLeft className="opacity-70 cursor-pointer hover:opacity-100" size={200} onClick={slideLeft} />
+			<div className="w-full zindexfix flex items-center">
+				<MdChevronLeft className="opacity-70 cursor-pointer hover:opacity-100" size={250} onClick={slideLeft} />
 				<div
 					id="slider"
 					className="overflow-x-scroll whitespace-nowrap scroll-smooth flex items-center"
@@ -36,7 +36,7 @@ function Slider({ data }: any) {
 								<Link
 									href={`https://www.youtube.com/watch?v=${resourceId.videoId}`}
 									target="_blank"
-									className=" w-48 lg:w-56 inline-block p-2 hover:scale-105 ease-in-out duration-300"
+									className=" w-44 md:w-48 lg:w-56 inline-block p-2 hover:scale-105 ease-in-out duration-300"
 								>
 									<Image
 										className="z-10 rounded-lg object-cover object-center"
@@ -51,10 +51,10 @@ function Slider({ data }: any) {
 						);
 					})}
 				</div>
-				<MdChevronRight className="opacity-70 cursor-pointer hover:opacity-100" size={200} onClick={slideRight} />
+				<MdChevronRight className="opacity-70 cursor-pointer hover:opacity-100" size={250} onClick={slideRight} />
 			</div>
 
-			<div className="image bg-slate-500 dark:bg-slate-400 h-[2px]"></div>
+			<div className="w-3/4 m-auto mb-28 md:mb-36 lg:mb-40 bg-slate-500 dark:bg-slate-400 h-[2px]"></div>
 		</>
 	);
 }
