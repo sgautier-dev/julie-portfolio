@@ -77,8 +77,8 @@ function Header() {
 						className="flex min-h-screen flex-col items-center py-8 text-slate-50 dark:text-slate-900"
 						aria-label="menu"
 					>
-						<a href="#bio" className="w-full py-6 text-center hover:opacity-70">
-							Bio
+						<a href="#julie" className="w-full py-6 text-center hover:opacity-70">
+							Julie
 						</a>
 						<a
 							href="#work"

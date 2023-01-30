@@ -4,7 +4,7 @@ import { client } from "../../lib/sanity.client";
 import urlFor from "../../lib/urlFor";
 import Slider from "../components/Slider";
 import ContactForm from "../components/ContactForm";
-import animateElementsOnScroll from "@/lib/animateElementsOnScroll";
+import Picture from "../components/Picture";
 
 import { SiMinutemailer } from "react-icons/si";
 import { League_Spartan } from "@next/font/google";
@@ -37,9 +37,11 @@ export default async function Home() {
 	const infos: JulieInfo[] = await client.fetch(queryInfo);
 
 	const firstImage = images.find((element) => element.title === "first")!;
+	// console.log("firstImage", firstImage);
 	const secondImage = images.find((element) => element.title === "second")!;
 	const thirdImage = images.find((element) => element.title === "third")!;
 	const fourthImage = images.find((element) => element.title === "fourth")!;
+	const fithImage = images.find((element) => element.title === "fith")!;
 	const contactImage = images.find((element) => element.title === "contact")!;
 	const bio = infos.find((element) => element.title === "Bio")!;
 	// console.log("bio", bio);
@@ -74,14 +76,35 @@ export default async function Home() {
 					></iframe>
 				</div>
 
-				<div className="flex flex-col place-items-end">
-					<Image
-						className="image animate-image"
-						src={urlFor(firstImage.image).url()}
-						alt={firstImage.alt}
-						width="2000"
-						height="1334"
-					/>
+				<div className="flex flex-col place-items-end scroll-mt-40" id="julie">
+					<div className="text mb-10 text-center">
+						<h2
+							className={`text-3xl md:text-4xl lg:text-5xl ${leagueSpartan.className}`}
+						>
+							LET YOURSELF BE ENCHANTED
+						</h2>
+						<p className="text">
+							The wonders of under water storytelling by Julie Gautier will take
+							your breath away.
+						</p>
+					</div>
+
+					<Slider data={data} />
+
+					<p className="text mb-20 md:mb-24 lg:mb-32">
+						By bringing a fascinating and innovating approach to filming under
+						water, Julie has single handedly revamped and reshaped underwater
+						storytelling. Not only is she in apnea when she is behind the camera
+						filming, but here are no special effects. Just pure creativity in
+						camera: camera angles, perspective and lighting all make up Julie’s
+						unique approach to delivering deep, thought provoking and
+						imaginative perspective to the water world. Julie’s vision is to
+						enchant us by capturing the minutiae of life so that we take care of
+						the world we live in.
+					</p>
+
+					<Picture data={firstImage} width={"2000"} height={"1334"} />
+
 					<Image
 						className="image"
 						src={urlFor(secondImage.image).url()}
@@ -90,7 +113,7 @@ export default async function Home() {
 						height="1334"
 					/>
 
-					<article className="info" id="bio">
+					{/* <article className="info" id="bio">
 						<div className="flex flex-row gap-2 ">
 							<Image
 								className="w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
@@ -107,7 +130,7 @@ export default async function Home() {
 						</div>
 
 						<p className="text">{bio.body}</p>
-					</article>
+					</article> */}
 
 					<Image
 						className="image"
@@ -117,7 +140,23 @@ export default async function Home() {
 						height="2757"
 					/>
 
-					<article className="info mb-6" id="work">
+					<Image
+						className="image"
+						src={urlFor(fourthImage.image).url()}
+						alt={fourthImage.alt}
+						width="2000"
+						height="1333"
+					/>
+
+					<Image
+						className="image"
+						src={urlFor(fithImage.image).url()}
+						alt={fithImage.alt}
+						width="2000"
+						height="1334"
+					/>
+
+					<article className="info" id="work">
 						<div className="flex flex-row gap-2 ">
 							<Image
 								className="z-10 w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
@@ -126,24 +165,24 @@ export default async function Home() {
 								width="1334"
 								height="2000"
 							/>
-							<h2
+							{/* <h2
 								className={`title vertical text-center tracking-tighter ${leagueSpartan.className}`}
 							>
 								WORK
-							</h2>
+							</h2> */}
 						</div>
-						<p className="text">{work.body}</p>
+						<p className="text">
+							<strong>
+								“Touch the heart as when we love something we want to naturally
+								look after it”
+							</strong>
+							<br /> She is committed to creating unforgettable awe inspiring
+							artwork to invite people today and for generations to come into
+							taking action for a better world. Underwater Cinematographer,
+							Julie also choreographs and danses under water in her films and
+							for others.
+						</p>
 					</article>
-
-					<Slider data={data} />
-
-					<Image
-						className="image"
-						src={urlFor(fourthImage.image).url()}
-						alt={fourthImage.alt}
-						width="2000"
-						height="1333"
-					/>
 
 					<article className="info" id="contact">
 						<div className="flex flex-row items-center gap-2 ">

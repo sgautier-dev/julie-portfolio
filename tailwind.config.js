@@ -13,7 +13,7 @@ module.exports = {
           '80%': { transform: 'scaleY(1.2)' },
           '100%': { transform: 'scaleY(1)' },
         },
-        'animate-image-visible': {
+        'image-visible': {
           '0%': {
             transform: 'translateY(20%)',
             opacity: 0
@@ -26,6 +26,7 @@ module.exports = {
       },
       animation: {
         'open-menu': 'open-menu 0.8s ease-in-out forwards',
+        'image-visible': 'image-visible 2s ease-in-out forwards',
       }
     }
   },

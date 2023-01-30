@@ -54,7 +54,7 @@ function Slider({ data }: any) {
 				<MdChevronRight className="opacity-70 cursor-pointer hover:opacity-100" size={250} onClick={slideRight} />
 			</div>
 
-			<div className="w-3/4 m-auto mb-28 md:mb-36 lg:mb-40 bg-slate-500 dark:bg-slate-400 h-[2px]"></div>
+			<div className="w-3/4 m-auto mb-10 bg-slate-500 dark:bg-slate-400 h-[2px]"></div>
 		</>
 	);
 }
