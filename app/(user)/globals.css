@@ -4,11 +4,15 @@
 
 @layer base {
 	.zindexfix {
-		transform: translate3d(0,0,0);
+		transform: translate3d(0, 0, 0);
+	}
+
+	.layout {
+		@apply w-4/5 md:w-3/4 mr-12 md:mr-14 lg:mr-36 mb-20 md:mb-24 lg:mb-32;
 	}
 
 	.image {
-		@apply w-4/5 md:w-3/4 mr-12 md:mr-14 lg:mr-36 mb-20 md:mb-24 lg:mb-32 rounded-lg object-cover object-center zindexfix;
+		@apply rounded-lg object-cover object-center zindexfix;
 	}
 
 	.title {
@@ -16,11 +20,11 @@
 	}
 
 	.text {
-		@apply text-lg sm:text-xl lg:text-2xl mx-4 bg-slate-50  dark:bg-slate-900 zindexfix rounded-lg;
+		@apply text-lg sm:text-xl lg:text-2xl p-4 lg:p-6 bg-slate-50  dark:bg-slate-900 zindexfix rounded-lg;
 	}
 
 	.info {
-		@apply image flex flex-col gap-2;
+		@apply layout flex flex-col lg:flex-row gap-2;
 	}
 
 	.icons {
@@ -31,8 +35,6 @@
 		writing-mode: vertical-rl;
 		text-orientation: upright;
 	}
-
-
 
 	.section-min-height {
 		min-height: calc(100vh - 68px);

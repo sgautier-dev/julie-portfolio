@@ -20,8 +20,9 @@ const leagueSpartan = League_Spartan({
 // `
 const queryPics = groq`
   *[_type=='juliePics'] {
-  image, alt, title
-}`;
+  image, alt, title, _id
+}
+`;
 
 const queryInfo = groq`
   *[_type=='julieInfo'] {
@@ -33,38 +34,25 @@ const YOUTUBE_CHANNEL_LIST_API =
 
 export default async function Home() {
 	const images: JuliePics[] = await client.fetch(queryPics);
-	// console.log('images', images)
+	// console.log("images", images);
 	const infos: JulieInfo[] = await client.fetch(queryInfo);
 
-	const firstImage = images.find((element) => element.title === "first")!;
+	// const firstImage = images.find((element) => element.title === "first")!;
 	// console.log("firstImage", firstImage);
-	const secondImage = images.find((element) => element.title === "second")!;
-	const thirdImage = images.find((element) => element.title === "third")!;
-	const fourthImage = images.find((element) => element.title === "fourth")!;
-	const fithImage = images.find((element) => element.title === "fith")!;
 	const contactImage = images.find((element) => element.title === "contact")!;
-	const bio = infos.find((element) => element.title === "Bio")!;
-	// console.log("bio", bio);
+	// const bio = infos.find((element) => element.title === "Bio")!;
 	const work = infos.find((element) => element.title === "Work")!;
-	// console.log("work", work);
 
 	const res = await fetch(
 		`${YOUTUBE_CHANNEL_LIST_API}?part=snippet&playlistId=PLxQXZEx3Eq__Zw_8jiaKqmvPKSU13f3Se&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`
 	);
 	const data = await res.json();
-	// console.log("playlistID", data);
 
 	return (
 		<>
 			{/* <div className="scroll-tracker h-4 bg-lime-600 fixed inset-44"></div> */}
 			<main className="mx-auto scroll-mt-52" id="top">
-				{/* <video
-					src="https://www.youtube.com/watch?v=gLpjV3drv1I&list=PLxQXZEx3Eq__Zw_8jiaKqmvPKSU13f3Se"
-					autoPlay
-					muted
-					className=""
-				></video> */}
-				<div className="relative overflow-hidden w-full h-0 pb-[75%] md-pb[56.25%] mb-40">
+				<div className="relative overflow-hidden w-full h-0 pb-[75%] md:pb-[56.25%] mb-36 md:mb-44 lg:mb-56">
 					<iframe
 						width="1280"
 						height="720"
@@ -77,21 +65,19 @@ export default async function Home() {
 				</div>
 
 				<div className="flex flex-col place-items-end scroll-mt-40" id="julie">
-					<div className="text mb-10 text-center">
+					<div className="layout text mb-10 m-auto">
 						<h2
-							className={`text-3xl md:text-4xl lg:text-5xl ${leagueSpartan.className}`}
+							className={`text-3xl md:text-4xl lg:text-5xl text-center ${leagueSpartan.className}`}
 						>
 							LET YOURSELF BE ENCHANTED
 						</h2>
-						<p className="text">
+						<p className="text-center">
 							The wonders of under water storytelling by Julie Gautier will take
 							your breath away.
 						</p>
 					</div>
-
 					<Slider data={data} />
-
-					<p className="text mb-20 md:mb-24 lg:mb-32">
+					<p className="layout text">
 						By bringing a fascinating and innovating approach to filming under
 						water, Julie has single handedly revamped and reshaped underwater
 						storytelling. Not only is she in apnea when she is behind the camera
@@ -103,15 +89,9 @@ export default async function Home() {
 						the world we live in.
 					</p>
 
-					<Picture data={firstImage} width={"2000"} height={"1334"} />
-
-					<Image
-						className="image"
-						src={urlFor(secondImage.image).url()}
-						alt={secondImage.alt}
-						width="2000"
-						height="1334"
-					/>
+					<div className="layout grid grid-cols-1 lg:grid-cols-2 gap-10">
+						<Picture images={images} />
+					</div>
 
 					{/* <article className="info" id="bio">
 						<div className="flex flex-row gap-2 ">
@@ -131,46 +111,19 @@ export default async function Home() {
 
 						<p className="text">{bio.body}</p>
 					</article> */}
-
-					<Image
-						className="image"
-						src={urlFor(thirdImage.image).url()}
-						alt={thirdImage.alt}
-						width="4134"
-						height="2757"
-					/>
-
-					<Image
-						className="image"
-						src={urlFor(fourthImage.image).url()}
-						alt={fourthImage.alt}
-						width="2000"
-						height="1333"
-					/>
-
-					<Image
-						className="image"
-						src={urlFor(fithImage.image).url()}
-						alt={fithImage.alt}
-						width="2000"
-						height="1334"
-					/>
-
 					<article className="info" id="work">
-						<div className="flex flex-row gap-2 ">
-							<Image
-								className="z-10 w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
-								src={urlFor(work.image).url()}
-								alt="julie gautier work image"
-								width="1334"
-								height="2000"
-							/>
-							{/* <h2
+						<Image
+							className="z-10 w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
+							src={urlFor(work.image).url()}
+							alt="julie gautier work image"
+							width="1334"
+							height="2000"
+						/>
+						{/* <h2
 								className={`title vertical text-center tracking-tighter ${leagueSpartan.className}`}
 							>
 								WORK
 							</h2> */}
-						</div>
 						<p className="text">
 							<strong>
 								“Touch the heart as when we love something we want to naturally
@@ -185,16 +138,14 @@ export default async function Home() {
 					</article>
 
 					<article className="info" id="contact">
-						<div className="flex flex-row items-center gap-2 ">
-							<Image
-								className="z-10 w-1/2 lg:w-2/5 rounded-lg object-cover object-center"
-								src={urlFor(contactImage.image).url()}
-								alt="julie gautier contact image"
-								width="467"
-								height="640"
-							/>
-							<SiMinutemailer className="text-6xl" />
-						</div>
+						<Image
+							className="z-10 w-1/2 lg:w-2/5 rounded-lg object-cover object-center"
+							src={urlFor(contactImage.image).url()}
+							alt="julie gautier contact image"
+							width="467"
+							height="640"
+						/>
+						{/* <SiMinutemailer className="text-6xl" /> */}
 						<ContactForm />
 					</article>
 				</div>
