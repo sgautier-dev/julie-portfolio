@@ -9,7 +9,7 @@ export default function Head() {
 			<meta content="width=device-width, initial-scale=1" name="viewport" />
 			<meta
 				name="description"
-				content="portfolio de julie gautier Underwater Author and Director"
+				content="Julie Gautier's Portfolio, Underwater Author and Director"
 			/>
 			<link rel="icon" href="/favicon.ico" />
 		</>

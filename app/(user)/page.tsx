@@ -64,7 +64,7 @@ export default async function Home() {
 					></iframe>
 				</div>
 
-				<div className="flex flex-col place-items-end scroll-mt-40" id="julie">
+				<div className="flex flex-col scroll-mt-40" id="julie">
 					<div className="layout text mb-10 m-auto">
 						<h2
 							className={`text-3xl md:text-4xl lg:text-5xl text-center ${leagueSpartan.className}`}
@@ -113,7 +113,7 @@ export default async function Home() {
 					</article> */}
 					<article className="info" id="work">
 						<Image
-							className="z-10 w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
+							className="w-3/4 lg:w-1/2 image"
 							src={urlFor(work.image).width(680).height(1020).url()}
 							alt="julie gautier work image"
 							width="680"
@@ -139,7 +139,7 @@ export default async function Home() {
 
 					<article className="info" id="contact">
 						<Image
-							className="z-10 w-1/2 lg:w-2/5 rounded-lg object-cover object-center"
+							className="w-1/2 lg:w-2/5 image"
 							src={urlFor(contactImage.image).url()}
 							alt="julie gautier contact image"
 							width="467"

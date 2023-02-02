@@ -8,7 +8,7 @@
 	}
 
 	.layout {
-		@apply w-4/5 md:w-3/4 mr-12 md:mr-14 lg:mr-36 mb-20 md:mb-24 lg:mb-32;
+		@apply w-4/5 md:w-3/4 ml-auto mr-12 md:mr-14 lg:mr-36 mb-20 md:mb-24 lg:mb-32;
 	}
 
 	.image {

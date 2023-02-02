@@ -39,7 +39,7 @@ function Slider({ data }: any) {
 									className=" w-44 md:w-48 lg:w-56 inline-block p-2 hover:scale-105 ease-in-out duration-300"
 								>
 									<Image
-										className="z-10 rounded-lg object-cover object-center"
+										className="image"
 										src={medium.url}
 										alt={title}
 										width={medium.width}
