@@ -14,6 +14,7 @@ function Footer() {
 					href="https://fr-fr.facebook.com/juliegautierofficiel/"
 					className="text-center hover:opacity-50"
 					target="_blank"
+					aria-label="facebook account of Julie Gautier"
 				>
 					<BsFacebook className="" />
 				</Link>
@@ -22,6 +23,7 @@ function Footer() {
 					href="https://www.instagram.com/juliegautier.nery/"
 					className="text-center hover:opacity-50"
 					target="_blank"
+					aria-label="instagram account of Julie Gautier"
 				>
 					<BsInstagram className="" />
 				</Link>
@@ -30,6 +32,7 @@ function Footer() {
 					href="https://www.youtube.com/@juliegautierofficial/"
 					className="text-center hover:opacity-50"
 					target="_blank"
+					aria-label="youtube channel of Julie Gautier"
 				>
 					<BsYoutube className="" />
 				</Link>
@@ -41,7 +44,7 @@ function Footer() {
 				<Link href="https://www.sgautier.dev/" target="_blank">
 					<p>Credits SG</p>
 				</Link>
-				<a href="#top" className="">
+				<a href="#top" aria-label="back to top">
 					<BsArrowUpSquare className="text-2xl" />
 				</a>
 			</div>

@@ -58,7 +58,7 @@ export default async function Home() {
 						height="720"
 						src="https://www.youtube.com/embed/gLpjV3drv1I?controls=0&mute=1&loop=1&playlist=gLpjV3drv1I&autoplay=1&modestbranding=1"
 						title="YouTube video player"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 						className="absolute top-0 left-0 w-full h-full m-auto"
 					></iframe>
@@ -114,10 +114,10 @@ export default async function Home() {
 					<article className="info" id="work">
 						<Image
 							className="z-10 w-3/4 lg:w-1/2 rounded-lg object-cover object-center"
-							src={urlFor(work.image).url()}
+							src={urlFor(work.image).width(680).height(1020).url()}
 							alt="julie gautier work image"
-							width="1334"
-							height="2000"
+							width="680"
+							height="1020"
 						/>
 						{/* <h2
 								className={`title vertical text-center tracking-tighter ${leagueSpartan.className}`}
