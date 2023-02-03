@@ -5,7 +5,7 @@ function ContactForm() {
 	return (
 		<>
 			<form
-				className="text w-3/4 flex flex-col gap-3"
+				className="text w-full flex flex-col gap-3"
 				id="contactForm"
 				onSubmit={sendEmail}
 			>
