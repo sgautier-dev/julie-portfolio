@@ -9,6 +9,8 @@ import Picture from "../components/Picture";
 import { SiMinutemailer } from "react-icons/si";
 import { League_Spartan } from "@next/font/google";
 
+// import '../../lib/scrollAnimations'
+
 const leagueSpartan = League_Spartan({
 	subsets: ["latin"],
 });
@@ -34,7 +36,6 @@ const YOUTUBE_CHANNEL_LIST_API =
 
 export default async function Home() {
 	const images: JuliePics[] = await client.fetch(queryPics);
-	// console.log("images", images);
 	const infos: JulieInfo[] = await client.fetch(queryInfo);
 
 	// const firstImage = images.find((element) => element.title === "first")!;
@@ -113,7 +114,7 @@ export default async function Home() {
 					</article> */}
 					<article className="info" id="work">
 						<Image
-							className="w-3/4 lg:w-1/2 image"
+							className="w-3/4 lg:w-1/2 image animatedImage"
 							src={urlFor(work.image).width(680).height(1020).url()}
 							alt="julie gautier work image"
 							width="680"
