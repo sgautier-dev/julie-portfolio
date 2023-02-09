@@ -9,17 +9,10 @@ import Picture from "../components/Picture";
 import { SiMinutemailer } from "react-icons/si";
 import { League_Spartan } from "@next/font/google";
 
-// import '../../lib/scrollAnimations'
-
 const leagueSpartan = League_Spartan({
 	subsets: ["latin"],
 });
 
-// const query = groq`
-//   *[_type=='juliePics'] {
-//   ...
-// } | order(_createdAt desc)
-// `
 const queryPics = groq`
   *[_type=='juliePics'] {
   image, alt, title, _id
@@ -38,8 +31,6 @@ export default async function Home() {
 	const images: JuliePics[] = await client.fetch(queryPics);
 	const infos: JulieInfo[] = await client.fetch(queryInfo);
 
-	// const firstImage = images.find((element) => element.title === "first")!;
-	// console.log("firstImage", firstImage);
 	const contactImage = images.find((element) => element.title === "contact")!;
 	// const bio = infos.find((element) => element.title === "Bio")!;
 	const work = infos.find((element) => element.title === "Work")!;
@@ -51,7 +42,6 @@ export default async function Home() {
 
 	return (
 		<>
-			{/* <div className="scroll-tracker h-4 bg-lime-600 fixed inset-44"></div> */}
 			<main className="mx-auto scroll-mt-52" id="top">
 				<div className="relative overflow-hidden w-full h-0 pb-[75%] md:pb-[56.25%] mb-36 md:mb-44 lg:mb-56">
 					<iframe
@@ -66,9 +56,9 @@ export default async function Home() {
 				</div>
 
 				<div className="flex flex-col scroll-mt-40" id="julie">
-					<div className="layout text mb-10 m-auto">
+					<div className="layout text mb-10 m-auto animate-text">
 						<h2
-							className={`text-3xl md:text-4xl lg:text-5xl text-center ${leagueSpartan.className}`}
+							className={`text-3xl md:text-4xl lg:text-5xl text-center  ${leagueSpartan.className}`}
 						>
 							LET YOURSELF BE ENCHANTED
 						</h2>
@@ -125,7 +115,7 @@ export default async function Home() {
 							>
 								WORK
 							</h2> */}
-						<p className="text">
+						<p className="text animate-text animate-text">
 							<strong>
 								“Touch the heart as when we love something we want to naturally
 								look after it”

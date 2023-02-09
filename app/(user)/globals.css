@@ -44,4 +44,9 @@
 	.toggle-btn {
 		@apply [&>span::before]:translate-y-0 [&>span::before]:rotate-45 [&>span::after]:translate-y-0 [&>span::after]:-rotate-45 [&>span]:rotate-[-720deg] [&>span]:bg-transparent;
 	}
+
+	.animate-text {
+
+		@apply opacity-0 scale-50 transition duration-700
+	}
 }

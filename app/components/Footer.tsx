@@ -42,7 +42,7 @@ function Footer() {
 					Copyright &copy; <span>{year}</span>
 				</p>
 				<Link href="https://www.sgautier.dev/" target="_blank">
-					<p>Credits SG</p>
+					<p>Designed by SG</p>
 				</Link>
 				<a href="#top" aria-label="back to top">
 					<BsArrowUpSquare className="text-2xl" />
