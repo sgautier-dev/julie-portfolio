@@ -5,7 +5,7 @@ import urlFor from "../../lib/urlFor";
 import Slider from "../components/Slider";
 import ContactForm from "../components/ContactForm";
 import Picture from "../components/Picture";
-
+import '../../lib/scrollAnimations';
 import { SiMinutemailer } from "react-icons/si";
 import { League_Spartan } from "@next/font/google";
 
@@ -60,7 +60,7 @@ export default async function Home() {
 						<h2
 							className={`text-3xl md:text-4xl lg:text-5xl text-center  ${leagueSpartan.className}`}
 						>
-							LET YOURSELF BE ENCHANTED
+							LET YOURSELF BE INSPIRED
 						</h2>
 						<p className="text-center">
 							The wonders of under water storytelling by Julie Gautier will take

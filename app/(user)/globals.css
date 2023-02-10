@@ -20,7 +20,7 @@
 	}
 
 	.text {
-		@apply text-lg sm:text-xl lg:text-2xl p-4 lg:p-6 bg-slate-50  dark:bg-slate-900 zindexfix rounded-lg;
+		@apply text-lg sm:text-xl lg:text-2xl p-4 lg:p-6 bg-slate-50  dark:bg-slate-900 zindexfix rounded-lg shadow-xl;
 	}
 
 	.info {
