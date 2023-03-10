@@ -28,10 +28,10 @@ function Header() {
 			id="header"
 		>
 			<h1 className="title pl-2 md:pl-3 lg:pl-4 transition-transform">
-				<span className="item block">
+				<span className="item block" translate="no">
 					JULIE
 				</span>
-				<span className="item block">
+				<span className="item block" translate="no">
 					GAUTIER
 				</span>
 			</h1>

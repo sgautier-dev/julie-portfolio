@@ -38,11 +38,11 @@ function Footer() {
 				</Link>
 			</div>
 			<div className="flex justify-between items-center text-sm p-3 ">
-				<p className="">
+				<p className="" translate="no">
 					Copyright &copy; <span>{year}</span>
 				</p>
 				<Link href="https://www.sgautier.dev/" target="_blank">
-					<p>Designed by SG</p>
+					<p translate="no">Designed by SG</p>
 				</Link>
 				<a href="#top" aria-label="back to top">
 					<BsArrowUpSquare className="text-2xl" />
