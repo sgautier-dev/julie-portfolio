@@ -28,8 +28,10 @@ const YOUTUBE_CHANNEL_LIST_API =
 	"https://www.googleapis.com/youtube/v3/playlistItems";
 
 export default async function Home() {
-	const images: JuliePics[] = await client.fetch(queryPics);
-	const infos: JulieInfo[] = await client.fetch(queryInfo);
+	const imagesData: Promise<JuliePics[]> = client.fetch(queryPics);
+	const infosData: Promise<JulieInfo[]> = client.fetch(queryInfo);
+
+	const [images, infos] = await Promise.all([imagesData, infosData]);
 
 	const contactImage = images.find((element) => element.title === "contact")!;
 	// const bio = infos.find((element) => element.title === "Bio")!;
@@ -104,7 +106,7 @@ export default async function Home() {
 					</article> */}
 					<article className="info" id="work">
 						<Image
-							className="w-3/4 lg:w-1/2 image animatedImage"
+							className="w-3/4 lg:w-1/2 image"
 							src={urlFor(work.image).width(680).height(1020).url()}
 							alt="julie gautier work image"
 							width="680"
