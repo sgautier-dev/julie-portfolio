@@ -6,7 +6,7 @@ import Slider from "../components/Slider";
 import ContactForm from "../components/ContactForm";
 import Picture from "../components/Picture";
 import '../../lib/scrollAnimations';
-import { SiMinutemailer } from "react-icons/si";
+// import { SiMinutemailer } from "react-icons/si";
 import { League_Spartan } from "@next/font/google";
 
 const leagueSpartan = League_Spartan({
