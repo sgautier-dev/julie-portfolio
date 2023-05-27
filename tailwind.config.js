@@ -27,7 +27,11 @@ module.exports = {
       animation: {
         'open-menu': 'open-menu 0.8s ease-in-out forwards',
         'image-visible': 'image-visible 2s ease-in-out forwards',
-      }
+      },
+      fontFamily: {
+        quicksand: ['var(--font-quicksand)'],
+        gistesy: ['var(--font-gistesy)'],
+      },
     }
   },
   plugins: [],

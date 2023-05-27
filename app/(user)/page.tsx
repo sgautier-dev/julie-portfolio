@@ -7,7 +7,7 @@ import ContactForm from "../components/ContactForm";
 import Picture from "../components/Picture";
 import '../../lib/scrollAnimations';
 // import { SiMinutemailer } from "react-icons/si";
-import { League_Spartan } from "@next/font/google";
+import { League_Spartan } from "next/font/google";
 
 const leagueSpartan = League_Spartan({
 	subsets: ["latin"],
@@ -44,7 +44,7 @@ export default async function Home() {
 
 	return (
 		<>
-			<main className="mx-auto scroll-mt-52" id="top">
+			<main className="mx-auto scroll-mt-52 font-quicksand" id="top">
 				<div className="relative overflow-hidden w-full h-0 pb-[75%] md:pb-[56.25%] mb-36 md:mb-44 lg:mb-56">
 					<iframe
 						width="1280"

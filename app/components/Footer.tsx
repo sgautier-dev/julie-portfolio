@@ -10,17 +10,17 @@ function Footer() {
 	return (
 		<>
 			<div className="flex flex-col gap-3 icons">
-				<Link
+				{/* <Link
 					href="https://fr-fr.facebook.com/juliegautierofficiel/"
 					className="text-center hover:opacity-50"
 					target="_blank"
 					aria-label="facebook account of Julie Gautier"
 				>
 					<BsFacebook className="" />
-				</Link>
+				</Link> */}
 
 				<Link
-					href="https://www.instagram.com/juliegautier.nery/"
+					href="https://www.instagram.com/JulieGautier.Watertales/"
 					className="text-center hover:opacity-50"
 					target="_blank"
 					aria-label="instagram account of Julie Gautier"
