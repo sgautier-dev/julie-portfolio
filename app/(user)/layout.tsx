@@ -1,13 +1,19 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import "./globals.css";
-import { Quicksand } from "next/font/google";
+import { Quicksand, League_Spartan } from "next/font/google";
 import localFont from 'next/font/local';
 
 const quicksand = Quicksand({
 	subsets: ["latin"],
 	display: 'swap',
 	variable: '--font-quicksand'
+});
+
+const leagueSpartan = League_Spartan({
+	subsets: ["latin"],
+	display: 'swap',
+	variable: '--font-leagueSpartan'
 });
 
 const gistesy = localFont({
@@ -28,7 +34,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
 			<head />
-			<body className={`min-h-screen bg-slate-50 dark:bg-slate-900 dark:text-white ${quicksand.variable} ${gistesy.variable}`}>
+			<body className={`min-h-screen bg-slate-50 dark:bg-slate-900 dark:text-white ${quicksand.variable} ${leagueSpartan.variable} ${gistesy.variable}`}>
 				<Header />
 				{children}
 				<Footer />

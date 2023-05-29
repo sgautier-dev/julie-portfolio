@@ -31,6 +31,7 @@ module.exports = {
       fontFamily: {
         quicksand: ['var(--font-quicksand)'],
         gistesy: ['var(--font-gistesy)'],
+        leagueSpartan: ['var(--font-leagueSpartan)'],
       },
     }
   },

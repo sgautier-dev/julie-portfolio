@@ -1,11 +1,6 @@
 "use client";
-import { League_Spartan } from "next/font/google";
 import '../../lib/scrollAnimations';
 
-const leagueSpartan = League_Spartan({
-	subsets: ["latin"],
-	// variable: '--font-title'
-});
 
 function Header() {
 	//toggling menu on click
@@ -24,18 +19,18 @@ function Header() {
 
 	return (
 		<header
-			className={`sticky top-0 z-0 flex items-center justify-between space-x-2 p-3 ${leagueSpartan.className}`}
+			className="sticky top-0 z-0 flex items-center justify-between space-x-2 p-3 font-leagueSpartan"
 			id="header"
 		>
-			<h1 className="title pl-2 md:pl-3 lg:pl-4 transition-transform">
-				<span className="item block" translate="no">
-					JULIE
+			<h1 className="title pb-2 pl-2 md:pl-3 lg:pl-4 transition-transform">
+				<span className=" item block" translate="no">
+					JULIE GAUTIER
 				</span>
-				<span className="item block" translate="no">
-					GAUTIER
+				<span className="item block font-gistesy text-center text-4xl sm:text-5xl md:text-6xl" translate="no">
+					WaterTales
 				</span>
 			</h1>
-			<h2 className="font-gistesy text-3xl sm:text-4xl md:text-5xl">WaterTales</h2>
+			
 			<div className="flex flex-col space-y-2 lg:space-y-2 ">
 				{/* <button className="vertical text-2xl md:text-3xl lg:text-4xl border-l-2 border-slate-900 text-center hover:opacity-50 leading-[20px] md:leading-[30px] lg:leading-[30px]">
 					<p className="vertical border-l-2">menu</p>

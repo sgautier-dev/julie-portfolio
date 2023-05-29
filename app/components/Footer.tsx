@@ -25,7 +25,7 @@ function Footer() {
 					target="_blank"
 					aria-label="instagram account of Julie Gautier"
 				>
-					<BsInstagram className="" />
+					<BsInstagram className="text-slate-900 dark:text-slate-50" />
 				</Link>
 
 				<Link
@@ -34,7 +34,7 @@ function Footer() {
 					target="_blank"
 					aria-label="youtube channel of Julie Gautier"
 				>
-					<BsYoutube className="" />
+					<BsYoutube className="text-slate-900 dark:text-slate-50" />
 				</Link>
 			</div>
 			<div className="flex justify-between items-center text-sm p-3 ">
