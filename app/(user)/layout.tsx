@@ -22,6 +22,12 @@ const gistesy = localFont({
 	variable: '--font-gistesy'
   });
 
+  export const metadata = {
+	title: "Julie Gautier Official Site - Water Tales",
+	description: "Julie Gautier Water Tales, Freediving Underwater Film Director, Creator of Aquaflow",
+	authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev" }],
+};
+
 export default function RootLayout({
 	children,
 }: {

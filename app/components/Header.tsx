@@ -1,6 +1,5 @@
 "use client";
-import '../../lib/scrollAnimations';
-
+import "../../lib/scrollAnimations";
 
 function Header() {
 	//toggling menu on click
@@ -22,15 +21,21 @@ function Header() {
 			className="sticky top-0 z-0 flex items-center justify-between space-x-2 p-3 font-leagueSpartan"
 			id="header"
 		>
-			<h1 className="title pb-2 pl-2 md:pl-3 lg:pl-4 transition-transform">
-				<span className=" item block" translate="no">
-					JULIE GAUTIER
+			<h1 className="title pb-2 md:pb-3 xl:pb-4 pl-2 md:pl-3 lg:pl-4 transition-transform">
+				<span className="item block" translate="no">
+					JULIE
 				</span>
-				<span className="item block font-gistesy text-center text-4xl sm:text-5xl md:text-6xl" translate="no">
-					WaterTales
+				<span className="item block" translate="no">
+					GAUTIER
 				</span>
 			</h1>
-			
+			<span
+				className="font-gistesy text-center text-4xl md:text-6xl lg:text-7xl xl:text-8xl"
+				translate="no"
+			>
+				WaterTales
+			</span>
+
 			<div className="flex flex-col space-y-2 lg:space-y-2 ">
 				{/* <button className="vertical text-2xl md:text-3xl lg:text-4xl border-l-2 border-slate-900 text-center hover:opacity-50 leading-[20px] md:leading-[30px] lg:leading-[30px]">
 					<p className="vertical border-l-2">menu</p>
@@ -53,7 +58,10 @@ function Header() {
 						className="flex min-h-screen flex-col items-center py-8 text-slate-50 dark:text-slate-900"
 						aria-label="menu"
 					>
-						<a href="#julie" className="w-full py-6 text-center hover:opacity-70">
+						<a
+							href="#julie"
+							className="w-full py-6 text-center hover:opacity-70"
+						>
 							Julie
 						</a>
 						<a
