@@ -59,19 +59,19 @@ function Header() {
 						aria-label="menu"
 					>
 						<a
-							href="#julie"
+							href="/#julie"
 							className="w-full py-6 text-center hover:opacity-70"
 						>
 							Julie
 						</a>
 						<a
-							href="#work"
+							href="/#work"
 							className="w-full py-6 text-center hover:opacity-70"
 						>
 							Work
 						</a>
 						<a
-							href="#contact"
+							href="/#contact"
 							className="w-full py-6 text-center hover:opacity-70"
 						>
 							Contact

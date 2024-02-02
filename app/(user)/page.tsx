@@ -1,51 +1,51 @@
-import Image from "next/image";
-import { groq } from "next-sanity";
-import { client } from "../../lib/sanity.client";
-import urlFor from "../../lib/urlFor";
-import Slider from "../components/Slider";
-import ContactForm from "../components/ContactForm";
-import Picture from "../components/Picture";
-import '../../lib/scrollAnimations';
+import Image from "next/image"
+import { groq } from "next-sanity"
+import { client } from "../../lib/sanity.client"
+import urlFor from "../../lib/urlFor"
+import Slider from "../components/Slider"
+import ContactForm from "../components/ContactForm"
+import Picture from "../components/Picture"
+import "../../lib/scrollAnimations"
 // import { SiMinutemailer } from "react-icons/si";
-import { League_Spartan } from "next/font/google";
+import { League_Spartan } from "next/font/google"
 
 const leagueSpartan = League_Spartan({
 	subsets: ["latin"],
-});
+})
 
 const queryPics = groq`
   *[_type=='juliePics'] {
   image, alt, title, _id
 }
-`;
+`
 
 const queryInfo = groq`
   *[_type=='julieInfo'] {
   image, body, title
-}`;
+}`
 
 const YOUTUBE_CHANNEL_LIST_API =
-	"https://www.googleapis.com/youtube/v3/playlistItems";
+	"https://www.googleapis.com/youtube/v3/playlistItems"
 
 export default async function Home() {
-	const imagesData: Promise<JuliePics[]> = client.fetch(queryPics);
-	const infosData: Promise<JulieInfo[]> = client.fetch(queryInfo);
+	const imagesData: Promise<JuliePics[]> = client.fetch(queryPics)
+	const infosData: Promise<JulieInfo[]> = client.fetch(queryInfo)
 
-	const [images, infos] = await Promise.all([imagesData, infosData]);
+	const [images, infos] = await Promise.all([imagesData, infosData])
 
-	const contactImage = images.find((element) => element.title === "contact")!;
+	const contactImage = images.find((element) => element.title === "contact")!
 	// const bio = infos.find((element) => element.title === "Bio")!;
-	const work = infos.find((element) => element.title === "Work")!;
+	const work = infos.find((element) => element.title === "Work")!
 
 	const res = await fetch(
 		`${YOUTUBE_CHANNEL_LIST_API}?part=snippet&playlistId=PLxQXZEx3Eq__Zw_8jiaKqmvPKSU13f3Se&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`
-	);
-	const data = await res.json();
+	)
+	const data = await res.json()
 
 	return (
 		<>
 			<main className="mx-auto scroll-mt-52 font-quicksand" id="top">
-				<div className="relative overflow-hidden w-full h-0 pb-[75%] md:pb-[56.25%] mb-36 md:mb-44 lg:mb-56">
+				<div className="relative overflow-hidden w-full h-0 pb-[75%] md:pb-[56.25%] mb-36">
 					<iframe
 						width="1280"
 						height="720"
@@ -58,6 +58,26 @@ export default async function Home() {
 				</div>
 
 				<div className="flex flex-col scroll-mt-40" id="julie">
+					<div className="layout text mb-20 m-auto">
+						<h2
+							className={`text-2xl md:text-3xl lg:text-4xl text-center  ${leagueSpartan.className}`}
+						>
+							Julie Gautier • Freediver • Film Director • Choreographer •
+							Underwater Dancer
+						</h2>
+						<p className="text-left">
+							Julie Gautier, from Réunion Island, is a leading figure in the
+							world of freediving, dance and film. She began by learning to
+							dance, before taking up freediving and then film-making. After
+							setting two French freediving records, she left the world of sport
+							for the world of creation, describing herself as an &quot;underwater
+							storyteller&quot;, and gained international recognition as a director
+							with Beyoncé&apos;s &quot;Runnin&quot; video, which has amassed more than 447
+							million views. Gautier also directed &quot;Free Fall&quot;, a film featuring
+							Guillaume Nery diving into Dean&apos;s Blue Hole in the Bahamas, a
+							video which has reached 29 million views.
+						</p>
+					</div>
 					<div className="layout text mb-10 m-auto animate-text">
 						<h2
 							className={`text-3xl md:text-4xl lg:text-5xl text-center  ${leagueSpartan.className}`}
@@ -144,5 +164,5 @@ export default async function Home() {
 				</div>
 			</main>
 		</>
-	);
+	)
 }

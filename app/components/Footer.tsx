@@ -1,11 +1,16 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { BsFacebook, BsInstagram, BsYoutube, BsArrowUpSquare } from "react-icons/bs";
+import Link from "next/link"
+import {
+	BsFacebook,
+	BsInstagram,
+	BsYoutube,
+	BsArrowUpSquare,
+} from "react-icons/bs"
 
 function Footer() {
-	const today = new Date();
-	const year = today.getFullYear().toString();
+	const today = new Date()
+	const year = today.getFullYear().toString()
 
 	return (
 		<>
@@ -39,8 +44,14 @@ function Footer() {
 			</div>
 			<div className="flex justify-between items-center text-sm p-3 ">
 				<p className="" translate="no">
-					Copyright &copy; <span>{year}</span>
+					Copyright &copy; <span>{year}</span>{" "}
+					<span className="block sm:inline text-xs">
+						tous droits réservés reproduction interdite sans autorisation
+					</span>
 				</p>
+				<Link href="/mentions">
+					<p>Mentions légales</p>
+				</Link>
 				<Link href="https://www.sgautier.dev/" target="_blank">
 					<p translate="no">Designed by SG</p>
 				</Link>
@@ -49,6 +60,6 @@ function Footer() {
 				</a>
 			</div>
 		</>
-	);
+	)
 }
-export default Footer;
+export default Footer
