@@ -27,7 +27,7 @@ function Slider({ data }: any) {
 					id="slider"
 					className="overflow-x-scroll whitespace-nowrap scroll-smooth flex items-center"
 				>
-					{data.items.map((item: any) => {
+					{data.map((item: any) => {
 						const { id, snippet = {} } = item;
 						const { title, thumbnails = {}, resourceId } = snippet;
 						const { medium = {} } = thumbnails;

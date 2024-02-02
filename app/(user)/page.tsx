@@ -27,6 +27,20 @@ const queryInfo = groq`
 const YOUTUBE_CHANNEL_LIST_API =
 	"https://www.googleapis.com/youtube/v3/playlistItems"
 
+const fetchVideos = async () => {
+	const res = await fetch(
+		`${YOUTUBE_CHANNEL_LIST_API}?part=snippet&playlistId=PLxQXZEx3Eq__Zw_8jiaKqmvPKSU13f3Se&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`
+	)
+	const data = await res.json()
+
+	// Filter out videos with a title indicating they are private
+	const publicVideos = data.items.filter(
+		(item: any) => item.snippet.title.toLowerCase() !== "private video"
+	)
+
+	return publicVideos
+}
+
 export default async function Home() {
 	const imagesData: Promise<JuliePics[]> = client.fetch(queryPics)
 	const infosData: Promise<JulieInfo[]> = client.fetch(queryInfo)
@@ -37,10 +51,11 @@ export default async function Home() {
 	// const bio = infos.find((element) => element.title === "Bio")!;
 	const work = infos.find((element) => element.title === "Work")!
 
-	const res = await fetch(
-		`${YOUTUBE_CHANNEL_LIST_API}?part=snippet&playlistId=PLxQXZEx3Eq__Zw_8jiaKqmvPKSU13f3Se&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`
-	)
-	const data = await res.json()
+	// const res = await fetch(
+	// 	`${YOUTUBE_CHANNEL_LIST_API}?part=snippet&playlistId=PLxQXZEx3Eq__Zw_8jiaKqmvPKSU13f3Se&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`
+	// )
+
+	const data = await fetchVideos()
 
 	return (
 		<>
@@ -58,26 +73,52 @@ export default async function Home() {
 				</div>
 
 				<div className="flex flex-col scroll-mt-40" id="julie">
-					<div className="layout text mb-20 m-auto">
-						<h2
-							className={`text-2xl md:text-3xl lg:text-4xl text-center  ${leagueSpartan.className}`}
-						>
-							Julie Gautier • Freediver • Film Director • Choreographer •
-							Underwater Dancer
+					<div className="layout text mb-20 ">
+						<h2 className={`title text-center  ${leagueSpartan.className}`}>
+							Freediver • Film Director • Choreographer • Underwater Dancer
 						</h2>
 						<p className="text-left">
 							Julie Gautier, from Réunion Island, is a leading figure in the
 							world of freediving, dance and film. She began by learning to
 							dance, before taking up freediving and then film-making. After
 							setting two French freediving records, she left the world of sport
-							for the world of creation, describing herself as an &quot;underwater
-							storyteller&quot;, and gained international recognition as a director
-							with Beyoncé&apos;s &quot;Runnin&quot; video, which has amassed more than 447
-							million views. Gautier also directed &quot;Free Fall&quot;, a film featuring
-							Guillaume Nery diving into Dean&apos;s Blue Hole in the Bahamas, a
-							video which has reached 29 million views.
+							for the world of creation, describing herself as an
+							&quot;underwater storyteller&quot;, and gained international
+							recognition as a director with Beyoncé&apos;s &quot;Runnin&quot;
+							video, which has amassed more than 447 million views. Gautier also
+							directed &quot;Free Fall&quot;, a film featuring Guillaume Nery
+							diving into Dean&apos;s Blue Hole in the Bahamas, a video which
+							has reached 29 million views.
 						</p>
 					</div>
+					<article
+						className="layout flex flex-col xl:flex-row gap-2"
+						id="conteuse"
+					>
+						<iframe
+							width="560"
+							height="315"
+							src="https://www.youtube.com/embed/8uR3SMZ7oDY?si=NBOfJwQl3qJcKjlh?modestbranding=1"
+							title="YouTube video player"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowFullScreen
+							className="w-full aspect-video rounded-lg z-10"
+						></iframe>
+						<div className="text">
+							<h2 className={`title text-center ${leagueSpartan.className}`}>
+								Julie Gautier: an underwater storyteller
+							</h2>
+							<p className="">
+								<br /> In this video from Arte, an European TV channel, discover
+								an interview that captures the essence of my journey between two
+								worlds - dance and freediving. It&apos;s an expression of my
+								heart and my passion, where every gesture underwater becomes
+								part of my personal story. This video lets you glimpse a piece
+								of my soul, a dance in the silence of the deep, where I feel
+								most at home…
+							</p>
+						</div>
+					</article>
 					<div className="layout text mb-10 m-auto animate-text">
 						<h2
 							className={`text-3xl md:text-4xl lg:text-5xl text-center  ${leagueSpartan.className}`}
@@ -116,7 +157,7 @@ export default async function Home() {
 								height="2000"
 							/>
 							<h2
-								className={`title vertical text-center tracking-tighter ${leagueSpartan.className}`}
+								className={`title vertical text-center ${leagueSpartan.className}`}
 							>
 								BIO
 							</h2>
@@ -133,11 +174,11 @@ export default async function Home() {
 							height="1020"
 						/>
 						{/* <h2
-								className={`title vertical text-center tracking-tighter ${leagueSpartan.className}`}
+								className={`title vertical text-center ${leagueSpartan.className}`}
 							>
 								WORK
 							</h2> */}
-						<p className="text animate-text animate-text">
+						<p className="text animate-text">
 							<strong>
 								“Touch the heart as when we love something we want to naturally
 								look after it”
