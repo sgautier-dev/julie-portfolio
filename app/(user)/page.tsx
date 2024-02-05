@@ -73,7 +73,7 @@ export default async function Home() {
 				</div>
 
 				<div className="flex flex-col scroll-mt-40" id="julie">
-					<div className="layout text mb-20 ">
+					<div className="layout text mb-20 animate-text">
 						<h2 className={`title text-center  ${leagueSpartan.className}`}>
 							Freediver • Film Director • Choreographer • Underwater Dancer
 						</h2>
@@ -121,7 +121,7 @@ export default async function Home() {
 					</article>
 					<div className="layout text mb-10 m-auto animate-text">
 						<h2
-							className={`text-3xl md:text-4xl lg:text-5xl text-center  ${leagueSpartan.className}`}
+							className={`title text-center  ${leagueSpartan.className}`}
 						>
 							LET YOURSELF BE INSPIRED
 						</h2>

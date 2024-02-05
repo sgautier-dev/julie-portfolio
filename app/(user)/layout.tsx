@@ -17,7 +17,7 @@ const leagueSpartan = League_Spartan({
 });
 
 const gistesy = localFont({
-	src: '../fonts/Gistesy.ttf',
+	src: '../fonts/LoftygoalsRegular-9Y5Xy.otf',
 	display: 'swap',
 	variable: '--font-gistesy'
   });

@@ -20,8 +20,8 @@ export default function Legal() {
 					Le représentant légal de WaterTales est Julie Gautier.
 				</p>
 				<p className="mb-4">
-					Le site web d&apos;WaterTales est hébergé par Vercel Inc., dont le
-					siège social est situé 340 S Lemon Ave #4133, Walnut, CA 91789, USA.
+					Le site web de WaterTales est hébergé par Vercel Inc., dont le siège
+					social est situé 340 S Lemon Ave #4133, Walnut, CA 91789, USA.
 				</p>
 				<p className="mb-4">
 					Toutes les œuvres visuelles présentées sur ce site, incluant sans
