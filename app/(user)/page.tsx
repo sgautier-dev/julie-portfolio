@@ -98,7 +98,7 @@ export default async function Home() {
 						<iframe
 							width="560"
 							height="315"
-							src="https://www.youtube.com/embed/8uR3SMZ7oDY?si=NBOfJwQl3qJcKjlh?modestbranding=1"
+							src="https://www.youtube.com/embed/GPZEcGRseMU?si=DVEH3_SlA-tP3xKF?modestbranding=1"
 							title="YouTube video player"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowFullScreen
@@ -109,20 +109,18 @@ export default async function Home() {
 								Julie Gautier: an underwater storyteller
 							</h2>
 							<p className="">
-								<br /> In this video from Arte, an European TV channel, discover
-								an interview that captures the essence of my journey between two
-								worlds - dance and freediving. It&apos;s an expression of my
-								heart and my passion, where every gesture underwater becomes
-								part of my personal story. This video lets you glimpse a piece
-								of my soul, a dance in the silence of the deep, where I feel
-								most at home…
+								<br /> In this video from Sea Art, a documentary directed by
+								Maud Baignères, discover an interview that captures the essence
+								of my journey between two worlds - dance and freediving. It&apos;s an
+								expression of my heart and my passion, where every gesture
+								underwater becomes part of my personal story. This video lets
+								you glimpse a piece of my soul, a dance in the silence of the
+								deep, where I feel most at home…
 							</p>
 						</div>
 					</article>
 					<div className="layout text mb-10 m-auto animate-text">
-						<h2
-							className={`title text-center  ${leagueSpartan.className}`}
-						>
+						<h2 className={`title text-center  ${leagueSpartan.className}`}>
 							LET YOURSELF BE INSPIRED
 						</h2>
 						<p className="text-center">
