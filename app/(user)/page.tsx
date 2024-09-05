@@ -207,7 +207,7 @@ export default async function Home() {
 							<Image
 								className="w-3/4 lg:w-1/2 image"
 								src={nikonZ8}
-								alt="julie gautier work image"
+								alt="Nikon Z8"
 							/>
 
 							<p className="text animate-text">
