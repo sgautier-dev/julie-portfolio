@@ -6,6 +6,8 @@ import Slider from "../components/Slider"
 import ContactForm from "../components/ContactForm"
 import Picture from "../components/Picture"
 import "../../lib/scrollAnimations"
+import nikonZ8 from "@/images/NikonZ8.png"
+import nikon from "@/images/nikon.ico"
 // import { SiMinutemailer } from "react-icons/si";
 import { League_Spartan } from "next/font/google"
 
@@ -111,11 +113,11 @@ export default async function Home() {
 							<p className="">
 								<br /> In this video from Sea Art, a documentary directed by
 								Maud Baignères, discover an interview that captures the essence
-								of my journey between two worlds - dance and freediving. It&apos;s an
-								expression of my heart and my passion, where every gesture
-								underwater becomes part of my personal story. This video lets
-								you glimpse a piece of my soul, a dance in the silence of the
-								deep, where I feel most at home…
+								of my journey between two worlds - dance and freediving.
+								It&apos;s an expression of my heart and my passion, where every
+								gesture underwater becomes part of my personal story. This video
+								lets you glimpse a piece of my soul, a dance in the silence of
+								the deep, where I feel most at home…
 							</p>
 						</div>
 					</article>
@@ -199,6 +201,86 @@ export default async function Home() {
 						/>
 						{/* <SiMinutemailer className="text-6xl" /> */}
 						<ContactForm />
+					</article>
+					<article id="work">
+						<div className="info mb-0">
+							<Image
+								className="w-3/4 lg:w-1/2 image"
+								src={nikonZ8}
+								alt="julie gautier work image"
+							/>
+
+							<p className="text animate-text">
+								<strong>Nikon Creator</strong>
+								<Image
+									src={nikon}
+									alt="Nikon Icon"
+									className="inline-block ml-2 w-6 h-6 lg:w-8 lg:h-8"
+								/>
+								<br /> I am fortunate to be part of the Nikon Creator community.
+								The Nikon brand supports me in my underwater adventures and
+								creations. I appreciate the efficiency and robustness of their
+								various equipment. Their advanced technology has allowed me to
+								capture the images I desired, even in extreme conditions. The{" "}
+								<a
+									href="https://www.nikon.fr/fr_FR/product/cameras/z-8"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="text-blue-500 underline"
+								>
+									Nikon Z8
+								</a>{" "}
+								has become an indispensable tool in my creations.
+							</p>
+						</div>
+
+						<p className="text layout">
+							I appreciate several aspects of the Nikon Z8, particularly the
+							quality of its 45.7-megapixel stacked CMOS sensor and especially
+							its responsive and ultra-precise autofocus. I find that this
+							camera provides exceptional image quality, offering unmatched
+							detail and clarity. Its low-light capabilities are particularly
+							useful for underwater shoots where natural light is often limited.
+							<br />
+							<br />
+							I have also had the opportunity to test the Nikon Z7. It is ideal
+							for harsh environments and extreme conditions that I often
+							encounter during my dives.
+							<br /> Each of these models has specific strengths that cater to
+							different needs.
+							<br />
+							<br /> The Z7 is lightweight and relatively compact. Its autofocus
+							is fast and accurate, perfect for most situations. It is a
+							versatile camera, ideal for those who prioritize portability.
+							<br /> The Z8, on the other hand, is my preferred tool for more
+							demanding situations. It is more robust and designed for
+							high-level performance. It captures images as detailed as the Z7
+							but excels in speed, with bursts of up to 20 frames per second. It
+							is also impressive in video, capable of filming in 8K, which is
+							ideal for advanced video projects. Its autofocus is even more
+							powerful, making it my choice for action or wildlife photography.
+							<br />
+							<br />{" "}
+							<a
+								href="https://www.nikon.fr/fr_FR/products/lenses"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-blue-500 underline"
+							>
+								Nikon&apos;s extensive range of lenses
+							</a>{" "}
+							allows me to capture every detail with clarity and depth, whether
+							it&apos;s close-ups of marine species or vast underwater
+							landscapes. <br />
+							<br />
+							<strong>Nikon’s Values</strong>
+							<br /> I am fortunate to be part of the Nikon Creator community.
+							The Nikon brand supports me in my underwater adventures and
+							creations. I appreciate the efficiency and robustness of their
+							various equipment. Their advanced technology has allowed me to
+							capture the images I desired, even in extreme conditions. The
+							Nikon Z8 has become an indispensable tool in my creations.
+						</p>
 					</article>
 				</div>
 			</main>
