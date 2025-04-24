@@ -58,7 +58,7 @@ export default function VideoPlayer() {
 			<button
 				onClick={toggleMute}
 				aria-label={muted ? "Unmute video" : "Mute video"}
-				className="absolute bottom-1 sm:bottom-2 lg:bottom-4 right-40 p-2 bg-white bg-opacity-75 rounded-full shadow"
+				className="absolute bottom-1 sm:bottom-2 lg:bottom-4 right-32 sm:right-36 lg:right-40 p-2 bg-white bg-opacity-75 rounded-full shadow"
 			>
 				{muted ? (
 					<svg
