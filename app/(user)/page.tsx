@@ -10,6 +10,7 @@ import nikonZ8 from "@/images/NikonZ8.png"
 import nikon from "@/images/nikon.ico"
 // import { SiMinutemailer } from "react-icons/si";
 import { League_Spartan } from "next/font/google"
+import HeroVideo from "../components/HeroVideo"
 
 const leagueSpartan = League_Spartan({
 	subsets: ["latin"],
@@ -63,15 +64,7 @@ export default async function Home() {
 		<>
 			<main className="mx-auto scroll-mt-52 font-quicksand" id="top">
 				<div className="relative overflow-hidden w-full h-0 pb-[75%] md:pb-[56.25%] mb-36">
-					<iframe
-						width="1280"
-						height="720"
-						src="https://www.youtube.com/embed/gLpjV3drv1I?controls=0&mute=1&loop=1&playlist=gLpjV3drv1I&autoplay=1&modestbranding=1"
-						title="YouTube video player"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowFullScreen
-						className="absolute top-0 left-0 w-full h-full m-auto"
-					></iframe>
+					<HeroVideo />
 				</div>
 
 				<div className="flex flex-col scroll-mt-40" id="julie">
