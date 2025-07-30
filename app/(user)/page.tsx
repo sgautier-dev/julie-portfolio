@@ -2,15 +2,15 @@ import Image from "next/image"
 import { groq } from "next-sanity"
 import { client } from "../../lib/sanity.client"
 import urlFor from "../../lib/urlFor"
-import Slider from "../components/Slider"
-import ContactForm from "../components/ContactForm"
-import Picture from "../components/Picture"
+import Slider from "../../components/Slider"
+import ContactForm from "../../components/ContactForm"
+import Picture from "../../components/Picture"
 import "../../lib/scrollAnimations"
 import nikonZ8 from "@/images/NikonZ8.png"
 import nikon from "@/images/nikon.ico"
 // import { SiMinutemailer } from "react-icons/si";
 import { League_Spartan } from "next/font/google"
-import HeroVideo from "../components/HeroVideo"
+import HeroVideo from "../../components/HeroVideo"
 
 const leagueSpartan = League_Spartan({
 	subsets: ["latin"],

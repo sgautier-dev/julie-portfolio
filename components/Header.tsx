@@ -1,20 +1,20 @@
-"use client";
-import "../../lib/scrollAnimations";
+"use client"
+import "../lib/scrollAnimations"
 
 function Header() {
 	//toggling menu on click
 	const toggleMenu = () => {
-		const hamburgerBtn = document.getElementById("hamburger-button")!;
-		const mobileMenu = document.getElementById("menu")!;
-		const header = document.getElementById("header")!;
+		const hamburgerBtn = document.getElementById("hamburger-button")!
+		const mobileMenu = document.getElementById("menu")!
+		const header = document.getElementById("header")!
 
-		header.classList.toggle("z-0");
-		header.classList.toggle("z-40");
+		header.classList.toggle("z-0")
+		header.classList.toggle("z-40")
 
-		mobileMenu.classList.toggle("hidden");
-		mobileMenu.classList.toggle("flex");
-		hamburgerBtn.classList.toggle("toggle-btn");
-	};
+		mobileMenu.classList.toggle("hidden")
+		mobileMenu.classList.toggle("flex")
+		hamburgerBtn.classList.toggle("toggle-btn")
+	}
 
 	return (
 		<header
@@ -80,6 +80,6 @@ function Header() {
 				</div>
 			</div>
 		</header>
-	);
+	)
 }
-export default Header;
+export default Header
