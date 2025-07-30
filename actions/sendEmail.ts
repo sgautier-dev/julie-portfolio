@@ -20,28 +20,26 @@ const sendEmail = actionClient
 		handleValidationErrorsShape: async (ve) =>
 			flattenValidationErrors(ve).fieldErrors,
 	})
-	.action(
-		async ({ parsedInput: { name, email, message } }) => {
-			//throw new Error ('test')
+	.action(async ({ parsedInput: { name, email, message } }) => {
+		//throw new Error ('test')
 
-			await checkArcJetProtection()
+		await checkArcJetProtection()
 
-			await resend.emails.send({
-				from: "Julie Portfolio <onboarding@resend.dev>", // onboarding@resend.dev for resend temp address
-				to: ["hellojuliegautier@gmail.com, sgautier.dev@gmail.com"],
-				replyTo: email as string,
-				subject: `Message de ${name}`,
-				react: React.createElement(EmailTemplate, {
-					name: name as string,
-					senderEmail: email as string,
-					message: message as string,
-				}),
-			})
+		await resend.emails.send({
+			from: "Julie Portfolio <onboarding@resend.dev>", // onboarding@resend.dev for resend temp address
+			to: ["hellojuliegautier@gmail.com"],
+			replyTo: email as string,
+			subject: `Message de ${name}`,
+			react: React.createElement(EmailTemplate, {
+				name: name as string,
+				senderEmail: email as string,
+				message: message as string,
+			}),
+		})
 
-			return {
-				message: "Your message has been sent!",
-			}
+		return {
+			message: "Your message has been sent!",
 		}
-	)
+	})
 
 export default sendEmail
