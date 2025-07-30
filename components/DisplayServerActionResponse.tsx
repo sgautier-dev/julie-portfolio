@@ -44,7 +44,7 @@ export function DisplayServerActionResponse({ result }: Props) {
 				<Notification
 					show={showSuccess}
 					onClose={() => setShowSuccess(false)}
-					title="Succès !"
+					title="Success!"
 					message={data.message}
 					variant="success"
 				/>
@@ -54,8 +54,8 @@ export function DisplayServerActionResponse({ result }: Props) {
 				<Notification
 					show={showServerError}
 					onClose={() => setShowServerError(false)}
-					title="Erreur serveur"
-					message="Veuillez réessayer plus tard."
+					title="Server error"
+					message="Please try again later."
 					variant="error"
 				/>
 			)}
@@ -64,8 +64,8 @@ export function DisplayServerActionResponse({ result }: Props) {
 				<Notification
 					show={showFetchError}
 					onClose={() => setShowFetchError(false)}
-					title="Erreur réseau"
-					message="Vérifiez votre connexion."
+					title="Network error"
+					message="Check your connection."
 					variant="error"
 				/>
 			)}
@@ -81,7 +81,7 @@ export function DisplayServerActionResponse({ result }: Props) {
 							onClose={() => {
 								setShowValidationErrors(false)
 							}}
-							title="Erreur de validation"
+							title="Validation error"
 							message={`${key}: ${errors?.join(", ")}`}
 							variant="error"
 						/>

@@ -10,11 +10,9 @@ import { checkArcJetProtection } from "@/lib/arcjet-protection"
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const schema = z.object({
-	firstName: z.string().min(1, { message: "Le prénom est requis." }),
-	lastName: z.string().min(1, { message: "Le nom de famille est requis." }),
-	email: z.string().email({ message: "Adresse e-mail invalide." }),
-	phone: z.string().optional(),
-	message: z.string().min(1, { message: "Le message est requis." }),
+	name: z.string().min(1, { message: "Name is required." }),
+	email: z.string().email({ message: "Invalid email." }),
+	message: z.string().min(1, { message: "Message is required." }),
 })
 
 const sendEmail = actionClient
@@ -23,27 +21,25 @@ const sendEmail = actionClient
 			flattenValidationErrors(ve).fieldErrors,
 	})
 	.action(
-		async ({ parsedInput: { firstName, lastName, email, phone, message } }) => {
-			// throw new Error ('test')
+		async ({ parsedInput: { name, email, message } }) => {
+			//throw new Error ('test')
 
 			await checkArcJetProtection()
 
 			await resend.emails.send({
-				from: "Baüca <contact@bauca.fr>", // onboarding@resend.dev for resend temp address
-				to: ["contact@bauca.fr"],
+				from: "Julie Portfolio <onboarding@resend.dev>", // onboarding@resend.dev for resend temp address
+				to: ["hellojuliegautier@gmail.com, sgautier.dev@gmail.com"],
 				replyTo: email as string,
-				subject: `Message de ${firstName} ${lastName}`,
+				subject: `Message de ${name}`,
 				react: React.createElement(EmailTemplate, {
-					firstName: firstName as string,
-					lastName: lastName as string,
+					name: name as string,
 					senderEmail: email as string,
-					phone: phone as string,
 					message: message as string,
 				}),
 			})
 
 			return {
-				message: "Votre message a bien été envoyé.",
+				message: "Your message has been sent!",
 			}
 		}
 	)

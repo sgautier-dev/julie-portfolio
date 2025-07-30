@@ -1,35 +1,63 @@
-"use client";
-import sendEmail from "@/lib/sendEmail";
-import Reaptcha from "reaptcha";
-import { useState, useRef } from "react";
+"use client"
+
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from "react"
+import { useAction } from "next-safe-action/hooks"
+import sendEmail from "@/actions/sendEmail"
+import { Loader2 } from "lucide-react"
+import { DisplayServerActionResponse } from "./DisplayServerActionResponse"
 
 function ContactForm() {
-	const [captchaToken, setCaptchaToken] = useState<string | null>(null);
-	const captchaRef = useRef<Reaptcha | null>(null);
+	const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		message: "",
+	})
+	const formRef = useRef<HTMLFormElement>(null)
+	const { execute, result, isExecuting } = useAction(sendEmail)
 
-	const verify = () => {
-		if (captchaRef.current) {
-			captchaRef.current.getResponse().then((res: string | null) => {
-				setCaptchaToken(res);
-			});
+	const handleChange = (
+		e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+	) => {
+		const { name, value } = e.target
+		setFormData((prevData) => ({
+			...prevData,
+			[name]: value,
+		}))
+	}
+
+	const handleSubmit = async (e: FormEvent) => {
+		e.preventDefault()
+
+		execute(formData)
+	}
+
+	useEffect(() => {
+		if (!isExecuting && result.data?.message) {
+			if (formRef.current) {
+				formRef.current.reset() // Reset form if success
+			}
+			setFormData({
+				name: "",
+				email: "",
+				message: "",
+			})
 		}
-	};
-
+	}, [isExecuting, result])
 	return (
 		<>
 			<form
 				className="text w-full flex flex-col gap-3"
 				id="contactForm"
-				onSubmit={(event) => {
-					event.preventDefault();
-					sendEmail(captchaToken);
-				}}
+				ref={formRef}
+				onSubmit={handleSubmit}
 			>
 				<label htmlFor="name">NAME*</label>
 				<input
 					type="text"
 					id="name"
 					name="name"
+					value={formData.name}
+					onChange={handleChange}
 					required
 					placeholder="your name"
 					className="bg-slate-50 dark:bg-slate-900 border-b border-solid border-slate-900 p-3 dark:border-slate-50"
@@ -39,6 +67,8 @@ function ContactForm() {
 					type="email"
 					id="email"
 					name="email"
+					value={formData.email}
+					onChange={handleChange}
 					required
 					placeholder="your email"
 					className="bg-slate-50 dark:bg-slate-900 border-b border-solid border-slate-900 p-3 dark:border-slate-50"
@@ -48,23 +78,22 @@ function ContactForm() {
 					name="message"
 					id="message"
 					placeholder="your message"
+					value={formData.message}
+					onChange={handleChange}
 					required
 					className="bg-slate-50 dark:bg-slate-900 border-b border-solid border-slate-900 p-3 dark:border-slate-50"
 				></textarea>
-				<Reaptcha
-					sitekey={process.env.NEXT_PUBLIC_REACT_APP_SITE_KEY}
-					ref={captchaRef}
-					onVerify={verify}
-				></Reaptcha>
+
 				<button
 					className="w-1/3 rounded-lg border border-solid border-slate-900 bg-slate-50 dark:bg-slate-900 p-2 text-center hover:bg-slate-200 dark:border-slate-50 ml-auto sm:w-1/4 disabled:cursor-not-allowed"
 					id="submitButton"
 				>
-					SEND
+					{isExecuting ? <Loader2 className="h-5 w-5 animate-spin" /> : "SEND"}
 				</button>
+				<DisplayServerActionResponse result={result} />
 			</form>
 		</>
-	);
+	)
 }
 
-export default ContactForm;
+export default ContactForm
