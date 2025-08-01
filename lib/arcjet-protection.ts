@@ -25,12 +25,12 @@ export async function checkArcJetProtection() {
 	if (decision.isDenied()) {
 		if (decision.reason.isRateLimit()) {
 			throw new Error(
-				"Trop de tentatives d'envois. Veuillez réessayer plus tard."
+				"Too many attempts. Please try again later."
 			)
 		}
 		if (decision.reason.isBot()) {
-			throw new Error("Vous êtes un bot. Veuillez vous en aller.")
+			throw new Error("You are a bot. Please leave.")
 		}
-		throw new Error("Une erreur s'est produite.")
+		throw new Error("An error has occurred.")
 	}
 }
