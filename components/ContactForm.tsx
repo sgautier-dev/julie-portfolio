@@ -28,7 +28,11 @@ function ContactForm() {
 	const handleSubmit = async (e: FormEvent) => {
 		e.preventDefault()
 
-		execute(formData)
+		// honeypot field
+		const fd = new FormData(formRef.current!)
+		const contact_info = (fd.get("contact_info") as string) || ""
+
+		execute({ ...formData, contact_info })
 	}
 
 	useEffect(() => {
@@ -83,6 +87,15 @@ function ContactForm() {
 					required
 					className="bg-slate-50 dark:bg-slate-900 border-b border-solid border-slate-900 p-3 dark:border-slate-50"
 				></textarea>
+
+				{/* Honeypot anti-bot */}
+				<input
+					type="text"
+					name="contact_info"
+					className="hidden"
+					tabIndex={-1}
+					autoComplete="off"
+				/>
 
 				<button
 					className="w-1/3 rounded-lg border border-solid border-slate-900 bg-slate-50 dark:bg-slate-900 p-2 text-center hover:bg-slate-200 dark:border-slate-50 ml-auto sm:w-1/4 disabled:cursor-not-allowed"

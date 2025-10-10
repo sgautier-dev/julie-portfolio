@@ -13,6 +13,7 @@ const schema = z.object({
 	name: z.string().min(1, { message: "Name is required." }),
 	email: z.string().email({ message: "Invalid email." }),
 	message: z.string().min(1, { message: "Message is required." }),
+	contact_info: z.string().optional(),
 })
 
 const sendEmail = actionClient
@@ -20,9 +21,12 @@ const sendEmail = actionClient
 		handleValidationErrorsShape: async (ve) =>
 			flattenValidationErrors(ve).fieldErrors,
 	})
-	.action(async ({ parsedInput: { name, email, message } }) => {
+	.action(async ({ parsedInput: { name, email, message, contact_info } }) => {
 		//throw new Error ('test')
 
+		if (contact_info && contact_info.trim() !== "") {
+			throw new Error("Bot detected (honeypot).")
+		}
 		await checkArcJetProtection()
 
 		await resend.emails.send({
