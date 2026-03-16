@@ -14,7 +14,7 @@ export default function Legal() {
 					entreprise et l&apos;utilisation de notre site web.
 				</p>
 				<p className="mb-4">
-					Le numéro SIRET de l&apos;entreprise WaterTales est 530 472 372 00024.
+					Le numéro SIRET de l&apos;entreprise WaterTales est 90311601000013.
 				</p>
 				<p className="mb-4">
 					Le représentant légal de WaterTales est Julie Gautier.
