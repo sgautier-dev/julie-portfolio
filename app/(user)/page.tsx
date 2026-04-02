@@ -68,7 +68,7 @@ export default async function Home() {
 				</div>
 
 				<section className="layout -mt-10 md:-mt-16 mb-20 relative z-20">
-					<div className="mx-auto max-w-4xl rounded-2xl border border-white/20 bg-gray-900/80 backdrop-blur-md px-6 py-8 md:px-10 md:py-10 shadow-sm">
+					<div className="mx-auto max-w-4xl rounded-2xl border border-white/20 bg-sky-900/70 backdrop-blur-md px-6 py-8 md:px-10 md:py-10 shadow-sm">
 						<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 							<div className="max-w-2xl">
 								<p className="mb-2 text-xs text-center sm:text-left uppercase tracking-[0.25em] text-white/70">
