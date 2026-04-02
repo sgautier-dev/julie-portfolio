@@ -71,18 +71,18 @@ export default async function Home() {
 					<div className="mx-auto max-w-4xl rounded-2xl border border-white/20 bg-gray-900/80 backdrop-blur-md px-6 py-8 md:px-10 md:py-10 shadow-sm">
 						<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 							<div className="max-w-2xl">
-								<p className="mb-2 text-xs uppercase tracking-[0.25em] text-white/70">
+								<p className="mb-2 text-xs text-center sm:text-left uppercase tracking-[0.25em] text-white/70">
 									New project
 								</p>
 
 								<h2
-									className={`title !mb-3 !text-left !leading-tight !text-white ${leagueSpartan.className}`}
+									className={`title mb-3 text-center sm:text-left leading-tight text-white ${leagueSpartan.className}`}
 								>
 									Discover Aqua{" "}
 									<span className="whitespace-nowrap">Dance Flow</span>
 								</h2>
 
-								<p className="text !mb-0 !bg-transparent !text-left !text-white/85">
+								<p className="text mb-0 bg-transparent text-left text-white/85">
 									Julie Gautier&apos;s underwater movement experience blending
 									freediving, dance and artistic expression.
 								</p>
@@ -93,7 +93,7 @@ export default async function Home() {
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="Visit Aqua Dance Flow website"
-								className="inline-flex h-10 min-w-[110px] whitespace-nowrap items-center justify-center self-start md:self-center rounded-full border border-white/70 bg-white/10 px-5 text-sm text-white transition hover:bg-white hover:text-black"
+								className="inline-flex h-10 min-w-[110px] whitespace-nowrap items-center justify-center self-center rounded-full border border-white/70 bg-white/10 px-5 text-sm text-white transition hover:bg-white hover:text-black"
 							>
 								Visit ADF
 							</a>
