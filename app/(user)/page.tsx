@@ -32,13 +32,13 @@ const YOUTUBE_CHANNEL_LIST_API =
 
 const fetchVideos = async () => {
 	const res = await fetch(
-		`${YOUTUBE_CHANNEL_LIST_API}?part=snippet&playlistId=PLxQXZEx3Eq__Zw_8jiaKqmvPKSU13f3Se&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`
+		`${YOUTUBE_CHANNEL_LIST_API}?part=snippet&playlistId=PLxQXZEx3Eq__Zw_8jiaKqmvPKSU13f3Se&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`,
 	)
 	const data = await res.json()
 
 	// Filter out videos with a title indicating they are private
 	const publicVideos = data.items.filter(
-		(item: any) => item.snippet.title.toLowerCase() !== "private video"
+		(item: any) => item.snippet.title.toLowerCase() !== "private video",
 	)
 
 	return publicVideos
@@ -63,9 +63,43 @@ export default async function Home() {
 	return (
 		<>
 			<main className="mx-auto scroll-mt-52 font-quicksand" id="top">
-				<div className="relative overflow-hidden w-full h-0 pb-[75%] md:pb-[56.25%] mb-36">
+				<div className="relative overflow-hidden w-full h-0 pb-[75%] md:pb-[56.25%] mb-8 md:mb-36">
 					<HeroVideo />
 				</div>
+
+				<section className="layout -mt-10 md:-mt-16 mb-20 relative z-20">
+					<div className="mx-auto max-w-4xl rounded-2xl border border-white/20 bg-gray-900/80 backdrop-blur-md px-6 py-8 md:px-10 md:py-10 shadow-sm">
+						<div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+							<div className="max-w-2xl">
+								<p className="mb-2 text-xs uppercase tracking-[0.25em] text-white/70">
+									New project
+								</p>
+
+								<h2
+									className={`title !mb-3 !text-left !leading-tight !text-white ${leagueSpartan.className}`}
+								>
+									Discover Aqua{" "}
+									<span className="whitespace-nowrap">Dance Flow</span>
+								</h2>
+
+								<p className="text !mb-0 !bg-transparent !text-left !text-white/85">
+									Julie Gautier&apos;s underwater movement experience blending
+									freediving, dance and artistic expression.
+								</p>
+							</div>
+
+							<a
+								href="https://www.aquadanceflow.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="Visit Aqua Dance Flow website"
+								className="inline-flex h-10 min-w-[110px] whitespace-nowrap items-center justify-center self-start md:self-center rounded-full border border-white/70 bg-white/10 px-5 text-sm text-white transition hover:bg-white hover:text-black"
+							>
+								Visit ADF
+							</a>
+						</div>
+					</div>
+				</section>
 
 				<div className="flex flex-col scroll-mt-40" id="julie">
 					<div className="layout text mb-20 animate-text">
