@@ -6,8 +6,8 @@ import Slider from "../../components/Slider"
 import ContactForm from "../../components/ContactForm"
 import Picture from "../../components/Picture"
 import "../../lib/scrollAnimations"
-import nikonZ8 from "@/images/NikonZ8.png"
-import nikon from "@/images/nikon.ico"
+// import nikonZ8 from "@/images/NikonZ8.png"
+// import nikon from "@/images/nikon.ico"
 // import { SiMinutemailer } from "react-icons/si";
 import { League_Spartan } from "next/font/google"
 import HeroVideo from "../../components/HeroVideo"
@@ -30,18 +30,29 @@ const queryInfo = groq`
 const YOUTUBE_CHANNEL_LIST_API =
 	"https://www.googleapis.com/youtube/v3/playlistItems"
 
+type YouTubePlaylistItem = {
+	snippet?: {
+		title?: string
+	}
+}
+
 const fetchVideos = async () => {
 	const res = await fetch(
 		`${YOUTUBE_CHANNEL_LIST_API}?part=snippet&playlistId=PLxQXZEx3Eq__Zw_8jiaKqmvPKSU13f3Se&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`,
+		{ next: { revalidate: 3600 } },
 	)
+
+	if (!res.ok) {
+		return []
+	}
+
 	const data = await res.json()
+	const items = Array.isArray(data?.items) ? data.items : []
 
-	// Filter out videos with a title indicating they are private
-	const publicVideos = data.items.filter(
-		(item: any) => item.snippet.title.toLowerCase() !== "private video",
+	return items.filter(
+		(item: YouTubePlaylistItem) =>
+			item?.snippet?.title?.toLowerCase() !== "private video",
 	)
-
-	return publicVideos
 }
 
 export default async function Home() {
@@ -50,9 +61,13 @@ export default async function Home() {
 
 	const [images, infos] = await Promise.all([imagesData, infosData])
 
-	const contactImage = images.find((element) => element.title === "contact")!
-	// const bio = infos.find((element) => element.title === "Bio")!;
-	const work = infos.find((element) => element.title === "Work")!
+	const contactImage = images.find((element) => element.title === "contact")
+	// const bio = infos.find((element) => element.title === "Bio")
+	const work = infos.find((element) => element.title === "Work")
+
+	if (!contactImage || !work) {
+		return null
+	}
 
 	// const res = await fetch(
 	// 	`${YOUTUBE_CHANNEL_LIST_API}?part=snippet&playlistId=PLxQXZEx3Eq__Zw_8jiaKqmvPKSU13f3Se&maxResults=50&key=${process.env.YOUTUBE_API_KEY}`
@@ -93,7 +108,7 @@ export default async function Home() {
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="Visit Aqua Dance Flow website"
-								className="inline-flex h-10 min-w-[110px] whitespace-nowrap items-center justify-center self-center rounded-full border border-white/70 bg-white/10 px-5 text-sm text-white transition hover:bg-white hover:text-black"
+								className="inline-flex h-10 min-w-[110px] whitespace-nowrap items-center justify-center self-center rounded-full border border-white/70 bg-white/10 px-5 text-sm font-medium text-white transition hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white/70 focus:ring-offset-2 focus:ring-offset-sky-950"
 							>
 								Visit ADF
 							</a>
@@ -127,7 +142,7 @@ export default async function Home() {
 						<iframe
 							width="560"
 							height="315"
-							src="https://www.youtube.com/embed/GPZEcGRseMU?si=DVEH3_SlA-tP3xKF?modestbranding=1"
+							src="https://www.youtube.com/embed/GPZEcGRseMU?si=DVEH3_SlA-tP3xKF&modestbranding=1"
 							title="YouTube video player"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowFullScreen
@@ -159,8 +174,8 @@ export default async function Home() {
 					</div>
 					<Slider data={data} />
 					<p className="layout text">
-						By bringing a fascinating and innovating approach to filming under
-						water, Julie has single handedly revamped and reshaped underwater
+						By bringing a fascinating and innovative approach to filming under
+						water, Julie has single-handedly revamped and reshaped underwater
 						storytelling. Not only is she in apnea when she is behind the camera
 						filming, but here are no special effects. Just pure creativity in
 						camera: camera angles, perspective and lighting all make up Julie’s
@@ -213,7 +228,7 @@ export default async function Home() {
 							<br /> She is committed to creating unforgettable awe inspiring
 							artwork to invite people today and for generations to come into
 							taking action for a better world. Underwater Cinematographer,
-							Julie also choreographs and danses under water in her films and
+							Julie also choreographs and dances under water in her films and
 							for others.
 						</p>
 					</article>
@@ -229,7 +244,7 @@ export default async function Home() {
 						{/* <SiMinutemailer className="text-6xl" /> */}
 						<ContactForm />
 					</article>
-					<article id="work">
+					{/* <article id="sponsor">
 						<div className="info mb-0">
 							<Image
 								className="w-3/4 lg:w-1/2 image"
@@ -308,7 +323,7 @@ export default async function Home() {
 							capture the images I desired, even in extreme conditions. The
 							Nikon Z8 has become an indispensable tool in my creations.
 						</p>
-					</article>
+					</article> */}
 				</div>
 			</main>
 		</>
